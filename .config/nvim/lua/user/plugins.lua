@@ -50,7 +50,8 @@ return packer.startup(function(use)
   -- JSX Syntax
   use "maxmellon/vim-jsx-pretty"
   use "nvim-lua/plenary.nvim"
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "windwp/nvim-ts-autotag"
+  use "windwp/nvim-autopairs"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -66,6 +67,12 @@ return packer.startup(function(use)
    "nvim-telescope/telescope-file-browser.nvim"
   }
 
+  -- Nvim TreeSitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+     run = ':TSUpdate'
+  }
+
   -- Toggle Term for neovim
   use "akinsho/toggleterm.nvim"
   -- Tab support
@@ -74,13 +81,15 @@ return packer.startup(function(use)
   use "roxma/nvim-yarp"
   use "roxma/vim-hug-neovim-rpc"
   use "Raimondi/delimitMate"
-  -- Alternative to airline
-  use "itchyny/lightline.vim"
+  -- LuaLine written in lua
+  use {
+    'nvim-lualine/lualine.nvim',
+     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   -- CSS color syntax for neovim
   use "ap/vim-css-color"
-  -- Github Themes for neovim
-  use "projekt0n/github-nvim-theme"
-
+  -- Themes
+  use "arcticicestudio/nord-vim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
