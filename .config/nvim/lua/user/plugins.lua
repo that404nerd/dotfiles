@@ -15,15 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
@@ -43,7 +34,7 @@ return packer.startup(function(use)
   -- Packer (vim package manager)
   use "wbthomason/packer.nvim"
   -- PopUp API Neovim
-  use "nvim-lua/popup.nvim" 
+  use "nvim-lua/popup.nvim"
   -- Nvim Tree
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
@@ -54,12 +45,16 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-nvim-lsp"
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Telescope
   use {
@@ -89,7 +84,7 @@ return packer.startup(function(use)
   -- CSS color syntax for neovim
   use "ap/vim-css-color"
   -- Themes
-  use "arcticicestudio/nord-vim"
+  use "projekt0n/github-nvim-theme"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
