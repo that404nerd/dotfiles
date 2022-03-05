@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local bufnr
 
 local term_opts = { silent = true }
 
@@ -22,3 +23,6 @@ keymap("n", "<C-q>", ":bd<CR>", opts)
 -- Move text up and down
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- LSP keybindings
+keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<CR>", opts)

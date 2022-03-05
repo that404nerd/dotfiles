@@ -69,20 +69,45 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  delimitMate = {
+  ["cmp-nvim-lua"] = {
     loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/delimitMate",
-    url = "https://github.com/Raimondi/delimitMate"
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["github-nvim-theme"] = {
     loaded = true,
@@ -93,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -124,25 +154,25 @@ _G.packer_plugins = {
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-autotag"] = {
+  ["nvim-ts-context-commentstring"] = {
     loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
-    url = "https://github.com/windwp/nvim-ts-autotag"
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["nvim-yarp"] = {
-    loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/nvim-yarp",
-    url = "https://github.com/roxma/nvim-yarp"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -168,26 +198,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["vim-css-color"] = {
-    loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/vim-css-color",
-    url = "https://github.com/ap/vim-css-color"
-  },
-  ["vim-hug-neovim-rpc"] = {
-    loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/vim-hug-neovim-rpc",
-    url = "https://github.com/roxma/vim-hug-neovim-rpc"
-  },
-  ["vim-js"] = {
-    loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/vim-js",
-    url = "https://github.com/yuezk/vim-js"
-  },
-  ["vim-jsx-pretty"] = {
-    loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
-    url = "https://github.com/maxmellon/vim-jsx-pretty"
   }
 }
 
