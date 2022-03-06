@@ -47,15 +47,16 @@ return packer.startup(function(use)
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-buffer") -- buffer completions
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-
+	use("hrsh7th/cmp-nvim-lsp")
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
+	-- snippets
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -69,6 +70,7 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("jose-elias-alvarez/null-ls.nvim")
 	use("nvim-treesitter/playground")
 	-- Toggle Term for neovim
 	use("akinsho/toggleterm.nvim")
@@ -79,7 +81,6 @@ return packer.startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	use("jose-elias-alvarez/null-ls.nvim")
 	-- Themes
 	use("projekt0n/github-nvim-theme")
 	-- Automatically set up your configuration after cloning packer.nvim
