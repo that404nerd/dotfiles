@@ -4,11 +4,11 @@ Configs of neovim, fish, zsh, bash and alacritty which you can fork, use it for 
 How to get these configs:
 ```
 $ git clone https://github.com/systemcoding/dotfiles 
-$ cp -r dotfiles-systemcoding/file_name .config/ 
+$ cp -r dotfiles/file_name .config/ 
 ```
 For eg:
 ```
-$ cp -r dotfiles-systemcoding/.zshrc $HOME 
+$ cp -r dotfiles/.zshrc $HOME 
 ```
 
 ## Neovim
