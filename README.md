@@ -16,7 +16,7 @@ NOTE: Neovim Plugins are updated and config is using Lua instead of Vim Script
 
 
 Plugins I used:
-# Basic Plugins
+### Basic Plugins
 * wbthomason/packer.nvim - https://github.com/wbthomason/packer.nvim
 * nvim-lua/popup.nvim - https://github.com/nvim-lua/popup.nvim
 * windwp/nvim-autopairs - https://github.com/windwp/nvim-autopairs
@@ -26,33 +26,33 @@ Plugins I used:
 * numToStr/Comment.nvim - https://github.com/numToStr/Comment.nvim
 * JoosepAlviste/nvim-ts-context-commentstring - https://github.com/JoosepAlviste/nvim-ts-context-commentstring
 
-# Some CMP Plugins
+### Some CMP Plugins
 hrsh7th/nvim-cmp - https://github.com/hrsh7th/nvim-cmp
 hrsh7th/cmp-buffer - https://github.com/hrsh7th/cmp-buffer
 hrsh7th/cmp-path - https://github.com/hrsh7th/cmp-path
 hrsh7th/cmp-cmdline - https://github.com/hrsh7th/cmp-cmdline
 saadparwaiz1/cmp_luasnip - https://github/saadparwaiz1/cmp_luasnip
 
-# LSP and LSP Snippet Plugins
+### LSP and LSP Snippet Plugins
 neovim/nvim-lspconfig - https://github.com/neovim/nvim-lspconfig
 L3MON4D3/LuaSnip - https://github.com/L3MON4D3/LuaSnip
 rafamadriz/friendly-snippets - https://github.com/rafamadriz/friendly-snippets
 
-# Treesitter
+### Treesitter
 nvim-treesitter/nvim-treesitter - https://github.com/nvim-treesitter/nvim-treesitter
 nvim-treesitter/playground - https://github.com/nvim-treesitter/playground
 
-# Null LS (Formatting, Linting etc...)
+### Null LS (Formatting, Linting etc...)
 jose-elias-alvarez/null-ls.nvim - https://github.com/jose-elias-alvarez/null-ls.nvim
 
-# Utility Plugins
+### Utility Plugins
 nvim-telescope/telescope.nvim - https://github.com/nvim-telescope/telescope.nvim
 nvim-telescope/telescope-file-browser.nvim - https://github.com/nvim-telescope/telescope-file-browser.nvim
 akinsho/bufferline.nvim - https://github.com/akinsho/bufferline.nvim
 akinsho/toggleterm.nvim - https://github.com/akinsho/toggleterm.nvim
 tamton-aquib/staline.nvim - https://github.com/tamton-aquib/staline.nvim
 
-# Themes
+### Themes
 projeckt0n/github-nvim-theme - https://github.com/projeckt0n/github-nvim-theme
 
 ## Alacritty
