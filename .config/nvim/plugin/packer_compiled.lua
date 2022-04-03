@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -94,11 +99,6 @@ _G.packer_plugins = {
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["cmp-nvim-lua"] = {
-    loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
-    url = "https://github.com/hrsh7th/cmp-nvim-lua"
-  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -109,15 +109,15 @@ _G.packer_plugins = {
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["github-nvim-theme"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
-  },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -183,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["staline.nvim"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/staline.nvim",
+    url = "https://github.com/tamton-aquib/staline.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,

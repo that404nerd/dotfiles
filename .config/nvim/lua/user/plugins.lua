@@ -68,19 +68,17 @@ return packer.startup(function(use)
 		"nvim-telescope/telescope-file-browser.nvim",
 	})
 
+	-- Tabs
+        use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+
 	-- Treesitter
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("nvim-treesitter/playground")
 	-- Toggle Term for neovim
 	use("akinsho/toggleterm.nvim")
-	-- Tab support
-	use("akinsho/bufferline.nvim")
 	-- LuaLine written in lua
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+	use 'tamton-aquib/staline.nvim'
 	-- Themes
 	use("projekt0n/github-nvim-theme")
 	-- Automatically set up your configuration after cloning packer.nvim

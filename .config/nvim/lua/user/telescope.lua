@@ -16,7 +16,9 @@ telescope.setup {
     mappings = {
       i = {},
     },
-  },
+  file_ignore_patterns = {
+	{ "node_modules" }
+  }
   pickers = {},
   extensions = {},
 }
