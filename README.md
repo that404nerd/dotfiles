@@ -1,13 +1,17 @@
 ## System Coding's dotfiles
-Configs of neovim, fish, zsh, bash and even alacritty which you can fork, use it for yourself as well
+Configs of neovim, fish, zsh, bash and alacritty which you can fork, use it for yourself as well
 
 How to get these configs:
-git clone https://github.com/systemcoding/dotfiles-systemcoding (Clone it in your home directory)
-cp -r dotfiles-systemcoding/file_name .config/ (replace file_name with your preference)
+```
+$ git clone https://github.com/systemcoding/dotfiles-systemcoding 
+$ cp -r dotfiles-systemcoding/file_name .config/ 
+```
 For eg:
-cp -r dotfiles-systemcoding/.zshrc $HOME (to copy my zsh config and also install zsh before copying)
+```
+$ cp -r dotfiles-systemcoding/.zshrc $HOME 
+```
 
-Neovim
+## Neovim
 NOTE: Neovim Plugins are updated and config is using Lua instead of Vim Script
 
 Install Packer (Updated configs) - https://github.com/wbthomason/packer.nvim
