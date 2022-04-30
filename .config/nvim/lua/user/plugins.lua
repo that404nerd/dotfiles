@@ -40,7 +40,6 @@ return packer.startup(function(use)
 	-- Nvim Tree
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
-	-- JSX Syntax
 	use("nvim-lua/plenary.nvim")
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("JoosepAlviste/nvim-ts-context-commentstring")
@@ -54,7 +53,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp")
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
-	-- snippets
+	-- Lua snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 	-- Treesitter
