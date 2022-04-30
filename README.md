@@ -3,12 +3,12 @@ Configs of neovim, fish, zsh, bash and alacritty which you can fork, use it for 
 
 How to get these configs:
 ```
-$ git clone https://github.com/systemcoding/dotfiles-systemcoding 
-$ cp -r dotfiles-systemcoding/file_name .config/ 
+$ git clone https://github.com/systemcoding/dotfiles 
+$ cp -r dotfiles/file_name .config/ 
 ```
 For eg:
 ```
-$ cp -r dotfiles-systemcoding/.zshrc $HOME 
+$ cp -r dotfiles/.zshrc $HOME 
 ```
 
 ## Neovim
@@ -27,33 +27,33 @@ Plugins I used:
 * JoosepAlviste/nvim-ts-context-commentstring - https://github.com/JoosepAlviste/nvim-ts-context-commentstring
 
 ### Some CMP Plugins
-hrsh7th/nvim-cmp - https://github.com/hrsh7th/nvim-cmp
-hrsh7th/cmp-buffer - https://github.com/hrsh7th/cmp-buffer
-hrsh7th/cmp-path - https://github.com/hrsh7th/cmp-path
-hrsh7th/cmp-cmdline - https://github.com/hrsh7th/cmp-cmdline
-saadparwaiz1/cmp_luasnip - https://github/saadparwaiz1/cmp_luasnip
+* hrsh7th/nvim-cmp - https://github.com/hrsh7th/nvim-cmp
+* hrsh7th/cmp-buffer - https://github.com/hrsh7th/cmp-buffer
+* hrsh7th/cmp-path - https://github.com/hrsh7th/cmp-path
+* hrsh7th/cmp-cmdline - https://github.com/hrsh7th/cmp-cmdline
+* saadparwaiz1/cmp_luasnip - https://github/saadparwaiz1/cmp_luasnip
 
 ### LSP and LSP Snippet Plugins
-neovim/nvim-lspconfig - https://github.com/neovim/nvim-lspconfig
-L3MON4D3/LuaSnip - https://github.com/L3MON4D3/LuaSnip
-rafamadriz/friendly-snippets - https://github.com/rafamadriz/friendly-snippets
+* neovim/nvim-lspconfig - https://github.com/neovim/nvim-lspconfig
+* L3MON4D3/LuaSnip - https://github.com/L3MON4D3/LuaSnip
+* rafamadriz/friendly-snippets - https://github.com/rafamadriz/friendly-snippets
 
 ### Treesitter
-nvim-treesitter/nvim-treesitter - https://github.com/nvim-treesitter/nvim-treesitter
-nvim-treesitter/playground - https://github.com/nvim-treesitter/playground
+* nvim-treesitter/nvim-treesitter - https://github.com/nvim-treesitter/nvim-treesitter
+* nvim-treesitter/playground - https://github.com/nvim-treesitter/playground
 
 ### Null LS (Formatting, Linting etc...)
-jose-elias-alvarez/null-ls.nvim - https://github.com/jose-elias-alvarez/null-ls.nvim
+* jose-elias-alvarez/null-ls.nvim - https://github.com/jose-elias-alvarez/null-ls.nvim
 
 ### Utility Plugins
-nvim-telescope/telescope.nvim - https://github.com/nvim-telescope/telescope.nvim
-nvim-telescope/telescope-file-browser.nvim - https://github.com/nvim-telescope/telescope-file-browser.nvim
-akinsho/bufferline.nvim - https://github.com/akinsho/bufferline.nvim
-akinsho/toggleterm.nvim - https://github.com/akinsho/toggleterm.nvim
-tamton-aquib/staline.nvim - https://github.com/tamton-aquib/staline.nvim
+* nvim-telescope/telescope.nvim - https://github.com/nvim-telescope/telescope.nvim
+* nvim-telescope/telescope-file-browser.nvim - https://github.com/nvim-telescope/telescope-file-browser.nvim
+* akinsho/bufferline.nvim - https://github.com/akinsho/bufferline.nvim
+* akinsho/toggleterm.nvim - https://github.com/akinsho/toggleterm.nvim
+* tamton-aquib/staline.nvim - https://github.com/tamton-aquib/staline.nvim
 
 ### Themes
-projeckt0n/github-nvim-theme - https://github.com/projeckt0n/github-nvim-theme
+* projeckt0n/github-nvim-theme - https://github.com/projeckt0n/github-nvim-theme
 
 ## Alacritty
 Config - https://github.com/systemcoding/dotfiles/blob/main/.config/alacritty/alacritty.yml
