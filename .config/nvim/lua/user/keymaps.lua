@@ -14,7 +14,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- other keymaps
-keymap("n", "<C-f>", ":Telescope<CR>", opts)
+keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
 keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
 
 -- splits
@@ -29,6 +29,3 @@ keymap("n", "<C-q>", ":bd<CR>", opts)
 -- Move text up and down
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- LSP keybindings
-keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<CR>", opts)

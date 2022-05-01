@@ -78,6 +78,10 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 	-- LuaLine written in lua
 	use 'tamton-aquib/staline.nvim'
+  -- Indent Blankline
+  use("lukas-reineke/indent-blankline.nvim")
+  -- Auto Formatting on save
+  use("lukas-reineke/lsp-format.nvim")
 	-- Themes
 	use("projekt0n/github-nvim-theme")
 	-- Automatically set up your configuration after cloning packer.nvim
