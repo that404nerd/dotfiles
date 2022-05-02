@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/revanth/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/revanth/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
