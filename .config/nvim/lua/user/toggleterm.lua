@@ -5,7 +5,7 @@ require "toggleterm".setup {
   shade_factor = '1',
   start_in_insert = true,
   persist_size = true,
-  direction = 'horizontal',
+  direction = 'float',
   float_opts = {
     border = "curved",
     winblend = 0,
