@@ -1,4 +1,4 @@
-![terminal-showcase](https://user-images.githubusercontent.com/68456596/166463607-9f6b5004-2ab6-401d-9093-4a10cca94830.png)
+![terminal](https://user-images.githubusercontent.com/68456596/166472560-0adc6a58-a8bf-4d51-8697-b7ac8e3edf26.png)
 
 ![i3-desktop](https://user-images.githubusercontent.com/68456596/166464911-9aa71569-0cb6-412d-9881-d5c8c309b562.png)
 
