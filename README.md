@@ -13,7 +13,12 @@ $ cp -r dotfiles/.zshrc $HOME
 
 ## Neovim
 NOTE: Neovim Plugins are updated and config is using Lua instead of Vim Script
+WARNING: Only neovim 0.7 or 0.7+ is supported (For Ubuntu, Debian)
 
+Dependencies required: (Installation links below)
+* shfmt - https://ostechnix.com/how-to-format-shell-programs-using-shfmt-in-linux/
+* luarocks - https://github.com/luarocks/luarocks/wiki/Download
+* luaformatter (luarocks required) - https://github.com/Koihik/LuaFormatter
 
 Plugins I used:
 ### Basic Plugins
