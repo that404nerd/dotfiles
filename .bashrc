@@ -48,4 +48,3 @@ alias pacup="sudo pacman -Syu"
 alias sync="sudo pacman -Sy"
 alias install="sudo pacman -S"
 
-eval "$(starship init bash)"

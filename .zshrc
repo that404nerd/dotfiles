@@ -25,8 +25,6 @@ if [ -d "$HOME/Applications" ] ;
   then PATH="$HOME/Applications:$PATH"
 fi
 
-bind "set completion-ignore-case on"
-
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -47,12 +45,11 @@ alias zm="cd $HOME/Documents/systemcoding-website/ && vim ."
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
 
 # Pacman related
 alias pacup="sudo pacman -Syu"
 alias sync="sudo pacman -Sy"
 alias install="sudo pacman -S"
 
+pfetch
 eval "$(starship init zsh)"

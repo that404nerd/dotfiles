@@ -16,7 +16,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- other keymaps
 keymap("n", "<C-f>", ":Telescope find_files<CR>", opts)
 keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
-
+keymap("n", "<C-~>", ":!ide<CR>", opts)
 -- splits
 keymap("n", "<C-w-s>", ":split", opts)
 keymap("n", "<C-w-v>", ":vsplit", opts)
