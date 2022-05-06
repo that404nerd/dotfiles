@@ -1,21 +1,25 @@
+![terminal](https://user-images.githubusercontent.com/68456596/166472560-0adc6a58-a8bf-4d51-8697-b7ac8e3edf26.png)
+
+![i3-desktop](https://user-images.githubusercontent.com/68456596/166464911-9aa71569-0cb6-412d-9881-d5c8c309b562.png)
+
 ## System Coding's dotfiles
-Configs of neovim, fish, zsh, bash and alacritty which you can fork, use it for yourself as well
+Configs of neovim, fish, zsh, bash and alacritty
 
-How to get these configs:
-```
-$ git clone https://github.com/systemcoding/dotfiles 
-$ cp -r dotfiles/file_name .config/ 
-```
-For eg:
-```
-$ cp -r dotfiles/.zshrc $HOME 
-```
+My App Configs:
+* [Neovim](https://github.com/systemcoding/dotfiles/tree/main/.config/nvim)
+* [Fish](https://github.com/systemcoding/dotfiles/tree/main/.config/fish)
+* [i3](https://github.com/systemcoding/dotfiles/tree/main/.config/i3)
+* [Alacritty](https://github.com/systemcoding/dotfiles/tree/main/.config/alacritty)
+* [Polybar](https://github.com/systemcoding/dotfiles/tree/main/.config/polybar)
 
-## Neovim
-NOTE: Neovim Plugins are updated and config is using Lua instead of Vim Script
+## Neovim (>=0.7)
+NOTE: Neovim Plugins are updated and config is using Lua instead of Vim Script 
 
+Dependencies required: (Installation links below)
+* shfmt - https://ostechnix.com/how-to-format-shell-programs-using-shfmt-in-linux/
+* luarocks - https://github.com/luarocks/luarocks/wiki/Download
+* luaformatter (luarocks required) - https://github.com/Koihik/LuaFormatter
 
-Plugins I used:
 ### Basic Plugins
 * wbthomason/packer.nvim - https://github.com/wbthomason/packer.nvim
 * nvim-lua/popup.nvim - https://github.com/nvim-lua/popup.nvim
@@ -55,8 +59,19 @@ Plugins I used:
 ### Themes
 * projeckt0n/github-nvim-theme - https://github.com/projeckt0n/github-nvim-theme
 
-## Alacritty
-Config - https://github.com/systemcoding/dotfiles/blob/main/.config/alacritty/alacritty.yml
+## Shell Setup
+* [Fish](https://fishshell.com) - Fish Shell
+* [Nerd Font](https://github.com/ryanoasis/nerd-fonts) - For Icon Support
+* [Tide](https://github.com/IlanCosman/tide) - Fish Shell Theme
+* [Fisher](https://github.com/jorgebucaran/fisher) - Fish Plugin Manager
+
+## i3wm Setup
+* [i3-gaps](https://github.com/Airblader/i3) - i3-gaps is a fork of i3wm
+* [Polybar](https://github.com/polybar/polybar) - A fast and easy-to-use tool for creating status bars
+* [i3lock](https://github.com/i3/i3lock) - Improved screen locker
+* [brillo](https://github.com/CameronNemo/brillo) - Controls the brightness of backlight and LED devices on Linux
+* [Nitrogen](https://github.com/l3ib/nitrogen) - Background browser and setter for X windows
+* [Picom](https://github.com/yshui/picom) - Picom is a compositor for X, and a fork of Compton
 
 ## License
 The files and scripts in this repository are licensed under the MIT License, which is a very permissive license allowing you to use, modify, copy, distribute, sell, give away, etc. the software. In other words, do what you want with it. The only requirement with the MIT License is that the license and copyright notice must be provided with the software.
