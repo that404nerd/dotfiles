@@ -80,7 +80,7 @@ return packer.startup(function(use)
   -- Terminal
   use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
   -- Themes
-  use { "martinsione/darkplus.nvim" }
+  use("navarasu/onedark.nvim")
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
