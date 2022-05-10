@@ -35,7 +35,7 @@ return packer.startup(function(use)
   use("wbthomason/packer.nvim")
   -- PopUp API Neovim
   use("nvim-lua/popup.nvim")
-  -- Autpairs
+  -- Autopairs
   use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
   -- Nvim Tree
   use("kyazdani42/nvim-web-devicons")
@@ -43,7 +43,6 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim")
   use("numToStr/Comment.nvim") -- Easily comment stuff
   use("JoosepAlviste/nvim-ts-context-commentstring")
-
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
   use("hrsh7th/cmp-buffer") -- buffer completions
@@ -56,30 +55,32 @@ return packer.startup(function(use)
   -- Lua snippets
   use("L3MON4D3/LuaSnip") --snippet engine
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-  -- Treesitter
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  })
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
   })
-
-  -- Tabs
-  use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-
   -- Treesitter
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  })
   use("williamboman/nvim-lsp-installer") -- simple to use language server installer
   use("jose-elias-alvarez/null-ls.nvim")
   use("nvim-treesitter/playground")
-  -- LuaLine written in lua
-  use 'tamton-aquib/staline.nvim'
+  -- Lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   -- Indent Blankline
   use("lukas-reineke/indent-blankline.nvim")
+  -- Buffers
+  use("akinsho/bufferline.nvim")
+  -- Terminal
+  use { "akinsho/toggleterm.nvim", tag = 'v1.*' }
   -- Themes
-  use("projekt0n/github-nvim-theme")
+  use { "martinsione/darkplus.nvim" }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
