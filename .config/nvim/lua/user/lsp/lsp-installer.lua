@@ -1,14 +1,6 @@
-local status, lsp_installer = pcall(require, "nvim-lsp-installer")
-if (not status) then return end
+require("nvim-lsp-installer").setup {}
+local lspconfig = require("lspconfig")
 
-lsp_installer.on_server_ready(function(server)
-  local opts = {}
-
-	 if server.name == "jsonls" then
-	 	local jsonls_opts = require("user.lsp.settings.jsonls")
-	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-	 end
-
-  server:setup(opts)
-end)
-
+lspconfig.sumneko_lua.setup {}
+lspconfig.tsserver.setup {}
+lspconfig.ccls.setup {}
