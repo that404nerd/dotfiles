@@ -1,5 +1,5 @@
 # Some exports
-set -gx TERM xterm-256color
+set -e fish_term24bit
 set -gx PAGER ~/vimpager/vimpager
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
@@ -19,10 +19,11 @@ set -g theme_hostname always
 # aliases
 alias ls "ls -la"
 alias config "/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-alias vim "nvim"
+alias vim "lvim"
 alias zm "cd $HOME/Documents/systemcoding-website/ && tmux"
 alias ide "tmux split-window -v -p 30 
 tmux split-window -h -p 66"
+alias killHost "kill $(lsof -t -i:3000)" # killing localhosts
 
 # Colorize grep output (good for log files)
 alias grep "grep --color=auto"
@@ -40,4 +41,3 @@ set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
   source $LOCAL_CONFIG
 end
-

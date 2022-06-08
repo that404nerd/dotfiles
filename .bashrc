@@ -1,9 +1,9 @@
-# Bash Shell Configuration
+#!/bin/bash
 
 # Exports
 export PATH=/home/revanth/.cargo/bin:$PATH
-export TERM="xterm-256color"                      
-export HISTCONTROL=ignoredups:erasedups 
+export TERM="xterm-256color"
+export HISTCONTROL=ignoredups:erasedups
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
@@ -14,7 +14,7 @@ export ARCHFLAGS="-arch x86_64"
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
 else
-   export EDITOR='nvim'
+   export EDITOR='lvim'
 fi
 
 ### PATH
@@ -36,7 +36,7 @@ bind "set completion-ignore-case on"
 alias ll="ls -la"
 alias zm="vim $HOME/Documents/systemcoding-website/"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-alias vim="nvim"
+alias vim="lvim" # Use Lunarvim 
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -47,4 +47,3 @@ alias fgrep='fgrep --color=auto'
 alias pacup="sudo pacman -Syu"
 alias sync="sudo pacman -Sy"
 alias install="sudo pacman -S"
-

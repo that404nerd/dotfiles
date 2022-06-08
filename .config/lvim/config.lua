@@ -5,38 +5,53 @@ lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
+-- Overriding LunarVim's default keybindings
+lvim.keys.normal_mode["<C-f>"] = ":Telescope find_files<CR>"
+lvim.keys.normal_mode["<C-b>"] = ":NvimTreeToggle<CR>"
+lvim.keys.normal_mode["<leader>r"] = ":NvimTreeRefresh<CR>"
+lvim.keys.normal_mode["<C-n>"] = ":bnext<CR>"
+lvim.keys.normal_mode["<C-p>"] = ":bprevious<CR>"
+lvim.keys.normal_mode["<C-q>"] = ":bd<CR>"
 
-lvim.builtin.bufferline = {
-  options = {
-    mode = "buffers",
-    numbers = "both",
-    indicator_icon = '▎',
-    buffer_close_icon = '',
-    modified_icon = '●',
-    close_icon = '',
-    left_trunc_marker = '',
-    right_trunc_marker = '',
-    max_name_length = 18,
-    max_prefix_length = 15,
-    tab_size = 18,
-    diagnostics = "nvim_lsp",
-    diagnostics_update_in_insert = false,
-    offsets = { { filetype = "NvimTree", text = "File Explorer" } },
-    color_icons = true,
-    show_buffer_icons = true,
-    show_buffer_close_icons = true,
-    show_buffer_default_icon = true,
-    show_close_icon = true,
-    show_tab_indicators = true,
-    persist_buffer_sort = true,
-    separator_style = "thin",
-    enforce_regular_tabs = true,
-    always_show_bufferline = true,
-    sort_by = 'id',
+-- ToggleTerm settings
+lvim.builtin.terminal.direction = "horizontal"
+lvim.builtin.terminal.size = 10
+
+-- Indent Blankline settings
+lvim.builtin.indent_blankline = {
+  buftype_exclude = { "terminal" },
+  filetype_exclude = { "dashboard", "NvimTree", "packer", "lsp-installer" },
+  show_current_context = true,
+  context_patterns = {
+    "class", "return", "function", "method", "^if", "^while", "jsx_element", "^for", "^object",
+    "^table", "block", "arguments", "if_statement", "else_clause", "jsx_element",
+    "jsx_self_closing_element", "try_statement", "catch_clause", "import_statement",
+    "operation_type"
   }
+}
+
+-- NeoTree Settings
+lvim.builtin.nvimtree.setup.disable_netrw = true
+lvim.builtin.nvimtree.setup.hijack_netrw = true
+lvim.builtin.nvimtree.setup.open_on_setup = false
+lvim.builtin.nvimtree.setup.ignore_ft_on_setup = {
+  "startify",
+  "dashboard",
+  "alpha",
+}
+lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
+lvim.builtin.nvimtree.setup.open_on_tab = false
+lvim.builtin.nvimtree.setup.hijack_cursor = false
+lvim.builtin.nvimtree.setup.update_cwd = true
+lvim.builtin.nvimtree.setup.diagnostics = {
+  enable = true,
+  icons = {
+    hint = "",
+    info = "",
+    warning = "",
+    error = "",
+  },
 }
 
 -- Use which-key to add extra bindings with the leader-key prefix
@@ -56,8 +71,6 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -73,13 +86,13 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "html",
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
--- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+--@usage disable automatic installation of servers
+lvim.lsp.automatic_servers_installation = false
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 local opts = {} -- check the lspconfig documentation for a list of all possible options
@@ -103,10 +116,10 @@ formatters.setup {
   { command = "black", filetypes = { "python" } },
   { command = "isort", filetypes = { "python" } },
   {
-    command = "prettier",
-    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    command = 'prettierd',
+    formatStdin = true,
     extra_args = { "--print-with", "100" },
-    filetypes = { "typescript", "typescriptreact" },
+    filetypes = { "typescript", "typescriptreact", "css" },
   },
 }
 
@@ -125,15 +138,18 @@ linters.setup {
 }
 
 lvim.plugins = {
-  { "folke/tokyonight.nvim" },
+  -- Additional Utilities
+  { "lukas-reineke/indent-blankline.nvim" },
+  { "kyazdani42/nvim-tree.lua" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
   {
     'romgrk/barbar.nvim',
-  }
+  },
 }
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.json", "*.jsonc" },
