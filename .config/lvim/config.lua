@@ -1,3 +1,7 @@
+-- Prefix variables
+local terminal_prefix = lvim.builtin.terminal
+local keybinding_prefix = lvim.keys.normal_mode
+
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -7,16 +11,16 @@ lvim.colorscheme = "onedarker"
 lvim.leader = "space"
 
 -- Overriding LunarVim's default keybindings
-lvim.keys.normal_mode["<C-f>"] = ":Telescope find_files<CR>"
-lvim.keys.normal_mode["<C-b>"] = ":NvimTreeToggle<CR>"
-lvim.keys.normal_mode["<leader>r"] = ":NvimTreeRefresh<CR>"
-lvim.keys.normal_mode["<C-n>"] = ":bnext<CR>"
-lvim.keys.normal_mode["<C-p>"] = ":bprevious<CR>"
-lvim.keys.normal_mode["<C-q>"] = ":bd<CR>"
+keybinding_prefix["<C-f>"] = ":Telescope find_files<CR>"
+keybinding_prefix["<C-b>"] = ":NvimTreeToggle<CR>"
+keybinding_prefix["<leader>r"] = ":NvimTreeRefresh<CR>"
+keybinding_prefix["<C-n>"] = ":bnext<CR>"
+keybinding_prefix["<C-p>"] = ":bprevious<CR>"
+keybinding_prefix["<C-q>"] = ":bd<CR>"
 
 -- ToggleTerm settings
-lvim.builtin.terminal.direction = "horizontal"
-lvim.builtin.terminal.size = 10
+terminal_prefix.direction = "horizontal"
+terminal_prefix.size = 10
 
 -- Indent Blankline settings
 lvim.builtin.indent_blankline = {
@@ -29,29 +33,6 @@ lvim.builtin.indent_blankline = {
     "jsx_self_closing_element", "try_statement", "catch_clause", "import_statement",
     "operation_type"
   }
-}
-
--- NeoTree Settings
-lvim.builtin.nvimtree.setup.disable_netrw = true
-lvim.builtin.nvimtree.setup.hijack_netrw = true
-lvim.builtin.nvimtree.setup.open_on_setup = false
-lvim.builtin.nvimtree.setup.ignore_ft_on_setup = {
-  "startify",
-  "dashboard",
-  "alpha",
-}
-lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
-lvim.builtin.nvimtree.setup.open_on_tab = false
-lvim.builtin.nvimtree.setup.hijack_cursor = false
-lvim.builtin.nvimtree.setup.update_cwd = true
-lvim.builtin.nvimtree.setup.diagnostics = {
-  enable = true,
-  icons = {
-    hint = "",
-    info = "",
-    warning = "",
-    error = "",
-  },
 }
 
 -- Use which-key to add extra bindings with the leader-key prefix
@@ -140,7 +121,6 @@ linters.setup {
 lvim.plugins = {
   -- Additional Utilities
   { "lukas-reineke/indent-blankline.nvim" },
-  { "kyazdani42/nvim-tree.lua" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
