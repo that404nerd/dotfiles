@@ -45,7 +45,7 @@ export ARCHFLAGS="-arch x86_64"
 # Aliases
 alias ls="ls -la"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-alias killHost "kill $(lsof -t -i:3000)" # killing localhosts
+alias killHost="kill $(lsof -t -i:3000)" # killing localhosts
 alias vim="lvim" # Use Lunarvim
 
 # Colorize grep output (good for log files)

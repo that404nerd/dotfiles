@@ -36,7 +36,7 @@ bind "set completion-ignore-case on"
 alias ls="exa -al --color=always --group-directories-first --icons"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias vim="lvim" # Use Lunarvim 
-alias killHost "kill $(lsof -t -i:3000)" # killing localhosts
+alias killHost="kill $(lsof -t -i:3000)" # killing localhosts
 
 # Mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
