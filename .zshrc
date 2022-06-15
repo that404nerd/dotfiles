@@ -45,16 +45,25 @@ export ARCHFLAGS="-arch x86_64"
 # Aliases
 alias ls="ls -la"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias killHost "kill $(lsof -t -i:3000)" # killing localhosts
 alias vim="lvim" # Use Lunarvim
-alias zm="cd $HOME/Documents/systemcoding-website/ && vim ."
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # Pacman related
 alias pacup="sudo pacman -Syu"
 alias sync="sudo pacman -Sy"
 alias install="sudo pacman -S"
+
+# Mirrors
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+
+# Cleanup orphaned packages
+alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 

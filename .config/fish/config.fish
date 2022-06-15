@@ -17,21 +17,27 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-alias ls "ls -la"
+alias ls "exa -al --color=always --group-directories-first --icons"
 alias config "/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias vim "lvim"
-alias zm "cd $HOME/Documents/systemcoding-website/ && tmux"
-alias ide "tmux split-window -v -p 30 
-tmux split-window -h -p 66"
 alias killHost "kill $(lsof -t -i:3000)" # killing localhosts
 
 # Colorize grep output (good for log files)
 alias grep "grep --color=auto"
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # Pacman related
 alias pacup "sudo pacman -Syu"
 alias sync "sudo pacman -Sy"
 alias install "sudo pacman -S"
+
+# Mirrors
+alias mirror "sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrors "sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+
+# Cleanup orphaned packages
+alias cleanup "sudo pacman -Rns (pacman -Qtdq)"
 
 # Go
 set -g GOPATH $HOME/go

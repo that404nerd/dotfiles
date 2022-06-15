@@ -33,10 +33,17 @@ fi
 bind "set completion-ignore-case on"
 
 # Aliases
-alias ll="ls -la"
-alias zm="vim $HOME/Documents/systemcoding-website/"
+alias ls="exa -al --color=always --group-directories-first --icons"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias vim="lvim" # Use Lunarvim 
+alias killHost "kill $(lsof -t -i:3000)" # killing localhosts
+
+# Mirrors
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+
+# Cleanup orphaned packages
+alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
