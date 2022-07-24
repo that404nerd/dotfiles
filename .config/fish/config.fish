@@ -1,6 +1,5 @@
 # Some exports
 set -e fish_term24bit
-set -gx PAGER ~/vimpager/vimpager
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
@@ -20,7 +19,7 @@ set -g theme_hostname always
 alias ls "exa -al --color=always --group-directories-first --icons"
 alias config "/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias vim "lvim"
-alias killHost "kill $(lsof -t -i:3000)" # killing localhosts
+alias killHost "kill (lsof -t -i:3000)" # killing localhosts
 
 # Colorize grep output (good for log files)
 alias grep "grep --color=auto"
