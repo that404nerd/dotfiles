@@ -30,7 +30,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
 else
-   export EDITOR='lvim'
+   export EDITOR='nvim'
 fi
 
 # Compilation flags
