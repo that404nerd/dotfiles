@@ -30,12 +30,10 @@ if [ -d "$HOME/Applications" ] ;
   then PATH="$HOME/Applications:$PATH"
 fi
 
-bind "set completion-ignore-case on"
-
 # Aliases
 alias ls="exa -al --color=always --group-directories-first --icons"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-alias vim="lvim" # Use Lunarvim 
+alias vim="nvim" # Use Neovim
 alias killHost="kill $(lsof -t -i:3000)" # killing localhosts
 
 # Mirrors
