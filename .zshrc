@@ -62,7 +62,10 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 autoload bashcompinit
 bashcompinit
 source /usr/share/bash-completion/completions/pacstall
+<<<<<<< HEAD
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+=======
+>>>>>>> 916176be30de295d3baab8885140e70da71460b9
