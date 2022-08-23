@@ -1,17 +1,20 @@
 export PATH=/home/revanth/.cargo/bin:$PATH
-export ZSH="$HOME/.oh-my-zsh"
-export TERM="xterm-256color"                      
-export HISTCONTROL=ignoredups:erasedups 
+export ZSH="$HOME/.zsh"
+export TERM="xterm-256color"
+export HISTSIZE=10000
+export SAVEHIST=10000
+export NVM_DIR="$HOME/.nvm"
 
-ZSH_THEME=bira
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
 
-plugins=(
-   git
-   zsh-autosuggestions
-   zsh-syntax-highlighting
-)
+### ---- PLUGINS & THEMES -----------------------------------
+source $ZSH/zsh-syntax-highlighting/F-Sy-H.plugin.zsh
+source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath=($ZSH/zsh-completions/src/ $fpath)
 
 ### PATH
+
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -23,8 +26,6 @@ fi
 if [ -d "$HOME/Applications" ] ;
   then PATH="$HOME/Applications:$PATH"
 fi
-
-source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -55,17 +56,6 @@ alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacma
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-autoload bashcompinit
-bashcompinit
-source /usr/share/bash-completion/completions/pacstall
-<<<<<<< HEAD
-
-export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-=======
->>>>>>> 916176be30de295d3baab8885140e70da71460b9
+
+eval "$(starship init zsh)"
