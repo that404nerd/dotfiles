@@ -1,20 +1,13 @@
 export PATH=/home/revanth/.cargo/bin:$PATH
 export ZSH="$HOME/.zsh"
 export TERM="xterm-256color"
-export HISTSIZE=10000
-export SAVEHIST=10000
-export NVM_DIR="$HOME/.nvm"
 
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_FIND_NO_DUPS
-
-### ---- PLUGINS & THEMES -----------------------------------
+### PLUGINS
 source $ZSH/zsh-syntax-highlighting/F-Sy-H.plugin.zsh
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=($ZSH/zsh-completions/src/ $fpath)
 
 ### PATH
-
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -37,6 +30,18 @@ fi
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
+apt() { 
+  command nala "$@"
+}
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}
+
 # Aliases
 alias ls="exa -al --color=always --group-directories-first --icons"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
@@ -56,6 +61,13 @@ alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacma
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
+# nix package manager 
+alias nix-install="nix-env -iA"
+alias nix-remove="nix-env -e"
+alias nix-update="nix-env -u"
+alias nix-list="nix-env -q"
+
+pfetch
 eval "$(starship init zsh)"
 
-export NVM_DIR="$HOME/.nvm"
+if [ -e /home/revanth/.nix-profile/etc/profile.d/nix.sh ]; then . /home/revanth/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
