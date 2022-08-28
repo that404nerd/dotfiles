@@ -1,11 +1,38 @@
-export PATH=/home/revanth/.cargo/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH="$HOME/.local/bin":$PATH
+export PATH="/usr/local/bin":$PATH
+export DOTNET_ROOT=/snap/dotnet-sdk/current
 export ZSH="$HOME/.zsh"
 export TERM="xterm-256color"
 
-### PLUGINS
-source $ZSH/zsh-syntax-highlighting/F-Sy-H.plugin.zsh
-source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+# some useful options
+setopt autocd extendedglob nomatch menucomplete
+unsetopt BEEP
+
+# auto-completion and stuff
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+# compinit
+_comp_options+=(globdots)		# Include hidden files.
 fpath=($ZSH/zsh-completions/src/ $fpath)
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Load colors
+autoload -Uz colors && colors
+
+source "$ZSH/utils/zsh-functions"
+source "$ZSH/utils/zsh-prompt"
+source "$ZSH/utils/zsh-vim-mode"
+
+# Plugins
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "hlissner/zsh-autopair"
 
 ### PATH
 if [ -d "$HOME/.bin" ] ;
@@ -20,19 +47,14 @@ if [ -d "$HOME/Applications" ] ;
   then PATH="$HOME/Applications:$PATH"
 fi
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
-else
-   export EDITOR='nvim'
-fi
-
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
+# Some functions
 apt() { 
   command nala "$@"
 }
+
 sudo() {
   if [ "$1" = "apt" ]; then
     shift
@@ -67,7 +89,7 @@ alias nix-remove="nix-env -e"
 alias nix-update="nix-env -u"
 alias nix-list="nix-env -q"
 
-pfetch
-eval "$(starship init zsh)"
+# recording using ffmpeg (X11)
+alias record-screen="ffmpeg -video_size 1366x768 -framerate 60 -f x11grab -i :0.0+0,0 -f pulse -ac 2 -i 0 -c:v libx264rgb -preset ultrafast $HOME/Videos/ScreenRecordings/output.mkv"
 
 if [ -e /home/revanth/.nix-profile/etc/profile.d/nix.sh ]; then . /home/revanth/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
