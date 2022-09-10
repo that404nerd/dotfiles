@@ -2,7 +2,7 @@ require('bufferline').setup {
   options = {
     mode = "buffers",
     numbers = "both",
-    indicator_icon = '▎',
+    indicator = { style = "icon", icon = "▎" },
     buffer_close_icon = '',
     modified_icon = '●',
     close_icon = '',
