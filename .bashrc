@@ -68,7 +68,4 @@ alias nix-remove="nix-env -e"
 alias nix-update="nix-env -u"
 alias nix-list="nix-env -q"
 
-pfetch
-eval "$(starship init bash)"
-
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
