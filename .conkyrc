@@ -1,0 +1,112 @@
+conky.config = {
+
+	--Various settings
+
+	background = true, 							-- forked to background
+	cpu_avg_samples = 2,						-- The number of samples to average for CPU monitoring.
+	diskio_avg_samples = 10,				-- The number of samples to average for disk I/O monitoring.
+	double_buffer = true,						-- Use the Xdbe extension? (eliminates flicker)
+	if_up_strictness = 'address',		-- how strict if testing interface is up - up, link or address
+	net_avg_samples = 2,						-- The number of samples to average for net data
+	no_buffers = true,							-- Subtract (file system) buffers from used memory?
+	temperature_unit = 'celsius',		-- fahrenheit or celsius
+	text_buffer_size = 2048,				-- size of buffer for display of content of large variables - default 256
+	update_interval = 1,						-- update interval
+	imlib_cache_size = 0,           -- disable image cache to get a new spotify cover per song
+
+
+	--Placement
+
+	alignment = 'middle_right',	-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
+	gap_x = 15,									-- pixels between right or left border
+	gap_y = 0,									-- pixels between bottom or left border
+	minimum_height = 450,				-- minimum height of window
+	minimum_width = 300,				-- minimum height of window
+	maximum_width = 300,				-- maximum height of window
+
+	--Graphical
+
+	border_inner_margin = 10, 				-- margin between border and text
+	border_outer_margin = 5, 					-- margin between border and edge of window
+	border_width = 0, 							  -- border width in pixels
+	default_bar_width = 80,					  -- default is 0 - full width
+	default_bar_height = 10,					-- default is 6
+	default_gauge_height = 25,				-- default is 25
+	default_gauge_width =40,					-- default is 40
+	default_graph_height = 40,				-- default is 25
+	default_graph_width = 0,					-- default is 0 - full width
+	default_shade_color = '#000000',	-- default shading colour
+	default_outline_color = '#000000',-- default outline colour
+	draw_borders = false,						  -- draw borders around text
+	draw_graph_borders = true,			  -- draw borders around graphs
+	draw_shades = false,						  -- draw shades
+	draw_outline = false,						  -- draw outline
+	stippled_borders = 0,						  -- dashing the border
+
+	--Textual
+
+	extra_newline = false,						-- extra newline at the end - for asesome's wiboxes
+	format_human_readable = true,				-- KiB, MiB rather then number of bytes
+	font = 'FiraCode Nerd Font:size=10',  				-- font for complete conky unless in code defined
+	max_text_width = 0,							-- 0 will make sure line does not get broken if width too smal
+	max_user_text = 16384,						-- max text in conky default 16384
+	override_utf8_locale = true,				-- force UTF8 requires xft
+	short_units = true,							-- shorten units from KiB to k
+	top_name_width = 21,						-- width for $top name value default 15
+	top_name_verbose = false,					-- If true, top name shows the full command line of  each  process - Default value is false.
+	uppercase = false,							-- uppercase or not
+	use_spacer = 'none',						-- adds spaces around certain objects to align - default none
+	use_xft = true,								-- xft font - anti-aliased font
+	xftalpha = 1,								-- alpha of the xft font - between 0-1
+
+	--Windows
+
+	own_window = true,							-- create your own window to draw
+	own_window_argb_value = 255,			    -- real transparency - composite manager required 0-255
+	own_window_argb_visual = true,				-- use ARGB - composite manager required
+	own_window_colour = '#282a36',				-- set colour if own_window_transparent no
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
+	own_window_transparent = false,				-- if own_window_argb_visual is true sets background opacity 0%
+	own_window_title = 'system_conky',			-- set the name manually  - default conky "hostname"
+	own_window_type = 'normal',				-- if own_window true options are: normal/override/dock/desktop/panel
+
+	--Colours
+
+	default_color = '#D9DDE2',  				-- default color and border color
+	color1 = '#FF0000',
+	color2 = '#597AA1',
+	color3 = '#cccccc',
+	color4 = '#D9BC83',
+	color5 = '#00BFFF',
+	color6 = '#FFFFFF',
+};
+
+conky.text = [[
+  ${color6}${voffset 4}${font FiraCode Nerd Font:size=36}${alignc}${time %l}:${time %M} ${time %p}${font}${color}
+  ${color6}${voffset 4}${font FiraCode Nerd Font:size=12}${alignc}${time %A} ${time %B} ${time %e}, ${time %Y}${font}${color}
+
+  ${color5}${font JetBrainsMono Nerd Font:size=10}${voffset 2}S Y S T E M   ${hr 2}${font}${color}
+  ${color2}Hostname:${color} ${alignr}${nodename}
+  ${color2}Distro:${color}${alignr}$sysname ${alignr}${execi 6000 lsb_release -a | grep 'Description'|awk {'print $3, $4, $5'}}
+  ${color2}Kernel:${color}${alignr}${exec uname -a}
+  ${color2}Uptime:${color} ${alignr}${uptime}
+
+  ${color5}${font JetBrainsMono Nerd Font:size=10}P R O C E S S O R S  ${hr 2}${font}${color}
+  ${color2}CPU Freq:${color} $alignr${freq}MHz
+  ${color2}CPU Temp:${color} $alignr${execi 10 sensors | grep 'Core 0' | awk {'print $3'}}
+  ${color2}History:${color} ${alignr}${cpugraph 8,100}
+
+  ${color5}${font JetBrainsMono Nerd Font:size=10}M E M O R Y   ${hr 2}${font}${color}
+  ${color2}RAM: ${color}${alignr}${offset -10}${mem} / ${memmax}${alignr}${membar}
+  ${color2}Swap:${color} ${alignr}${offset -10}${swap} / ${swapmax}${alignr}${swapbar}
+  ${color2}Top Processes${goto 222}  cpu${goto 274}  mem${color}
+  ${voffset 4}${top_mem name 1}${alignr}${goto 170} ${goto 222}${top_mem cpu 1} ${goto 274}${top_mem mem 1}
+  ${top_mem name 2}${alignr}${goto 170} ${goto 222}${top_mem cpu 2} ${goto 274}${top_mem mem 2}
+  ${top_mem name 3}${alignr}${goto 170} ${goto 222}${top_mem cpu 3} ${goto 274}${top_mem mem 3}
+  ${top_mem name 4}${alignr}${goto 170} ${goto 222}${top_mem cpu 4} ${goto 274}${top_mem mem 4}
+
+  ${color5}${font JetBrainsMono Nerd Font:size=10}D R I V E S   ${hr 2}${font}${color}
+  ${color2}Root:${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${fs_bar}
+  ${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1p3}${alignr}${diskiograph_read nvme1n1p1 8,100}
+  ${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvme0n1p3}${alignr}${diskiograph_write nvme1n1p1 8,100}
+]];
