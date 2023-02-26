@@ -21,22 +21,22 @@ window:
 # Font configuration
 font:
   normal:
-    family: CascadiaCode Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Regular
 
   # Bold font face
   bold:
-    family: CascadiaCode Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   # Italic font face
   italic:
-    family: CascadiaCode Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: CascadiaCode Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
   # Point size
