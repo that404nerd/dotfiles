@@ -4,6 +4,7 @@
 Configs of neovim, fish, zsh, bash and alacritty
 
 Some of the scripts like in `(.local/bin)` are not mine and a README.md file is added in that directory, so please check that out!
+Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.com/playlist?list=PLnur5_dvCveFGV8tKbH9sdqOSBUlFNQrR
 
 ## i3wm Setup
 * [i3-gaps](https://github.com/Airblader/i3) - i3-gaps is a fork of i3wm
