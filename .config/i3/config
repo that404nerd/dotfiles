@@ -5,15 +5,16 @@ exec --no-startup-id dex --autostart --environment i3
 # Startup Apps
 exec --no-startup-id "nitrogen --restore &"
 exec --no-startup-id "picom --experimental-backends"
+exec --no-startup-id "flameshot &"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1 &
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/.local/scripts/sound-control-notification.sh up
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/.local/scripts/sound-control-notification.sh down
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/.local/bin/sound-control-notification.sh up
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/.local/bin/sound-control-notification.sh down
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && ~/.local/scripts/sound-control-notification.sh mute
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && ~/.local/bin/sound-control-notification.sh mute
 bindsym XF86MonBrightnessUp exec --no-startup-id brillo -q -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id brillo -q -U 5
 
