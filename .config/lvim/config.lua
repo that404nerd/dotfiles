@@ -1,11 +1,26 @@
--- Prefix variables
+-- Read the docs: https://www.lunarvim.org/docs/configuration
+-- Example configs: https://github.com/LunarVim/starter.lvim
+-- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
+-- Forum: https://www.reddit.com/r/lunarvim/
+-- Discord: https://discord.com/invite/Xb9B4Ny
+
 local terminal_prefix = lvim.builtin.terminal
 local keybinding_prefix = lvim.keys.normal_mode
 
--- general
-lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+vim.diagnostic.config({ virtual_text = true })
+
+lvim.builtin.treesitter.highlight.enable = true
+
+-- auto install treesitter parsers
+lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
+
+-- Additional Plugins
+table.insert(lvim.plugins, {
+  "p00f/clangd_extensions.nvim",
+})
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -22,122 +37,115 @@ keybinding_prefix["<C-q>"] = ":bd<CR>"
 terminal_prefix.direction = "horizontal"
 terminal_prefix.size = 10
 
--- Indent Blankline settings
-lvim.builtin.indent_blankline = {
-  buftype_exclude = { "terminal" },
-  filetype_exclude = { "dashboard", "NvimTree", "packer", "lsp-installer" },
-  show_current_context = true,
-  context_patterns = {
-    "class", "return", "function", "method", "^if", "^while", "jsx_element", "^for", "^object",
-    "^table", "block", "arguments", "if_statement", "else_clause", "jsx_element",
-    "jsx_self_closing_element", "try_statement", "catch_clause", "import_statement",
-    "operation_type"
-  }
+-- some settings can only passed as commandline flags, see `clangd --help`
+local clangd_flags = {
+  "--background-index",
+  "--fallback-style=Google",
+  "--all-scopes-completion",
+  "--clang-tidy",
+  "--log=error",
+  "--suggest-missing-includes",
+  "--cross-file-rename",
+  "--completion-style=detailed",
+  "--pch-storage=memory",     -- could also be disk
+  "--folding-ranges",
+  "--enable-config",          -- clangd 11+ supports reading from .clangd configuration file
+  "--offset-encoding=utf-16", --temporary fix for null-ls
+  -- "--limit-references=1000",
+  -- "--limit-resutls=1000",
+  -- "--malloc-trim",
+  -- "--clang-tidy-checks=-*,llvm-*,clang-analyzer-*,modernize-*,-modernize-use-trailing-return-type",
+  -- "--header-insertion=never",
+  -- "--query-driver=<list-of-white-listed-complers>"
 }
 
--- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["t"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
-}
+local provider = "clangd"
 
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true
+local custom_on_attach = function(client, bufnr)
+  require("lvim.lsp").common_on_attach(client, bufnr)
 
--- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
-  "yaml",
-  "html",
-}
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set("n", "<leader>lh", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
+  vim.keymap.set("x", "<leader>lA", "<cmd>ClangdAST<cr>", opts)
+  vim.keymap.set("n", "<leader>lH", "<cmd>ClangdTypeHierarchy<cr>", opts)
+  vim.keymap.set("n", "<leader>lt", "<cmd>ClangdSymbolInfo<cr>", opts)
+  vim.keymap.set("n", "<leader>lm", "<cmd>ClangdMemoryUsage<cr>", opts)
 
-lvim.builtin.treesitter.highlight.enabled = true
-
---@usage disable automatic installation of servers
-lvim.lsp.automatic_servers_installation = false
-
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
-local opts = {} -- check the lspconfig documentation for a list of all possible options
-require("lvim.lsp.manager").setup("pyright", opts)
-
-vim.tbl_map(function(server)
-  return server ~= "emmet_ls"
-end, lvim.lsp.automatic_configuration.skipped_servers)
-
-lvim.lsp.on_attach_callback = function(client, bufnr)
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
-
-  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  require("clangd_extensions.inlay_hints").setup_autocmd()
+  require("clangd_extensions.inlay_hints").set_inlay_hints()
 end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-  { command = "black", filetypes = { "python" } },
-  { command = "isort", filetypes = { "python" } },
-  {
-    command = 'prettierd',
-    formatStdin = true,
-    extra_args = { "--print-with", "100" },
-    filetypes = { "typescript", "typescriptreact", "css" },
-  },
+local status_ok, project_config = pcall(require, "rhel.clangd_wrl")
+if status_ok then
+  clangd_flags = vim.tbl_deep_extend("keep", project_config, clangd_flags)
+end
+
+local custom_on_init = function(client, bufnr)
+  require("lvim.lsp").common_on_init(client, bufnr)
+  require("clangd_extensions.config").setup {}
+  require("clangd_extensions.ast").init()
+  vim.cmd [[
+  command ClangdToggleInlayHints lua require('clangd_extensions.inlay_hints').toggle_inlay_hints()
+  command -range ClangdAST lua require('clangd_extensions.ast').display_ast(<line1>, <line2>)
+  command ClangdTypeHierarchy lua require('clangd_extensions.type_hierarchy').show_hierarchy()
+  command ClangdSymbolInfo lua require('clangd_extensions.symbol_info').show_symbol_info()
+  command -nargs=? -complete=customlist,s:memuse_compl ClangdMemoryUsage lua require('clangd_extensions.memory_usage').show_memory_usage('<args>' == 'expand_preamble')
+  ]]
+end
+
+local opts = {
+  cmd = { provider, unpack(clangd_flags) },
+  on_attach = custom_on_attach,
+  on_init = custom_on_init,
 }
 
--- set additional linters_info
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { command = "flake8", filetypes = { "python" } },
-  {
-    command = "shellcheck",
-    extra_args = { "--severity", "warning" },
-  },
-  {
-    command = "codespell",
-    filetypes = { "javascript", "python" },
-  },
-}
+require("lvim.lsp.manager").setup("clangd", opts)
 
-lvim.plugins = {
-  -- Additional Utilities
-  { "lukas-reineke/indent-blankline.nvim" },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
-  {
-    'romgrk/barbar.nvim',
-  },
-}
+-- install codelldb with :MasonInstall codelldb
+-- configure nvim-dap (codelldb)
+lvim.builtin.dap.on_config_done = function(dap)
+  dap.adapters.codelldb = {
+    type = "server",
+    port = "${port}",
+    executable = {
+      -- provide the absolute path for `codelldb` command if not using the one installed using `mason.nvim`
+      command = "codelldb",
+      args = { "--port", "${port}" },
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*.json", "*.jsonc" },
-  command = "setlocal wrap",
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "zsh",
-  callback = function()
-    require("nvim-treesitter.highlight").attach(0, "bash")
-  end,
-})
+      -- On windows you may have to uncomment this:
+      -- detached = false,
+    },
+  }
+
+  lvim.plugins = {
+    -- Additional Utilities
+    { "lukas-reineke/indent-blankline.nvim" },
+    {
+      "folke/trouble.nvim",
+      cmd = "TroubleToggle",
+    },
+    {
+      'romgrk/barbar.nvim',
+    },
+  }
+
+  dap.configurations.cpp = {
+    {
+      name = "Launch file",
+      type = "codelldb",
+      request = "launch",
+      program = function()
+        local path
+        vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/build/" }, function(input)
+          path = input
+        end)
+        vim.cmd [[redraw]]
+        return path
+      end,
+      cwd = "${workspaceFolder}",
+      stopOnEntry = false,
+    },
+  }
+
+  dap.configurations.c = dap.configurations.cpp
+end
