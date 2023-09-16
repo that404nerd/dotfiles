@@ -8,6 +8,7 @@ Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.
 
 ## Lunarvim
 Default C/C++ Configuration - https://github.com/LunarVim/starter.lvim/tree/c-ide
+Lunarvim launch issue (-u option error) - https://github.com/LunarVim/LunarVim/issues/3612#issuecomment-1379895972
 
 ## i3wm Setup
 * [i3-gaps](https://github.com/Airblader/i3) - i3-gaps is a fork of i3wm
