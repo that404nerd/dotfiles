@@ -6,6 +6,10 @@ Configs of neovim, fish, zsh, bash and alacritty
 Some of the scripts like in `(.local/bin)` are not mine and a README.md file is added in that directory, so please check that out!
 Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.com/playlist?list=PLnur5_dvCveFGV8tKbH9sdqOSBUlFNQrR
 
+## Lunarvim
+* Default C/C++ Configuration - https://github.com/LunarVim/starter.lvim/tree/c-ide
+* Lunarvim launch issue (-u option error) - https://github.com/LunarVim/LunarVim/issues/3612#issuecomment-1379895972
+
 ## i3wm Setup
 * [i3-gaps](https://github.com/Airblader/i3) - i3-gaps is a fork of i3wm
 * [polybar](https://github.com/polybar/polybar) - A fast and easy-to-use tool for creating status bars
