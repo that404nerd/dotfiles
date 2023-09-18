@@ -32,6 +32,13 @@ keybinding_prefix["<leader>r"] = ":NvimTreeRefresh<CR>"
 keybinding_prefix["<C-n>"] = ":bnext<CR>"
 keybinding_prefix["<C-p>"] = ":bprevious<CR>"
 keybinding_prefix["<C-q>"] = ":bd<CR>"
+--keybinding_prefix["<C-t>"] = ":ToggleTerm<CR>"
+keybinding_prefix["<leader>db"] = ":DapToggleBreakpoint<CR>"
+keybinding_prefix["<leader>dr"] = ":DapContinue<CR>"
+
+vim.api.nvim_set_keymap('n', '<C-t>', ':ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
 
 -- ToggleTerm settings
 terminal_prefix.direction = "horizontal"
@@ -40,7 +47,7 @@ terminal_prefix.size = 10
 -- some settings can only passed as commandline flags, see `clangd --help`
 local clangd_flags = {
   "--background-index",
-  "--fallback-style=Google",
+  "--fallback-style=llvm",
   "--all-scopes-completion",
   "--clang-tidy",
   "--log=error",

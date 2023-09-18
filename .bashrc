@@ -46,7 +46,7 @@ sudo() {
 # Aliases
 alias ls="exa -al --color=always --group-directories-first --icons"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-alias vim="nvim" # Use Neovim
+alias vim="lvim" # Use Lunarvim
 alias killHost="kill $(lsof -t -i:3000)" # killing localhosts
 
 # Colorize grep output (good for log files)
@@ -69,3 +69,4 @@ alias nix-update="nix-env -u"
 alias nix-list="nix-env -q"
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+source /home/revanth/compile_apps/alacritty/extra/completions/alacritty.bash
