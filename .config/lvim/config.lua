@@ -7,17 +7,29 @@
 local terminal_prefix = lvim.builtin.terminal
 local keybinding_prefix = lvim.keys.normal_mode
 
-lvim.format_on_save = true
+lvim.format_on_save = false
 vim.diagnostic.config({ virtual_text = true })
+lvim.colorscheme = "vscode"
 
 lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.treesitter.context_commentstring = nil
 
 -- auto install treesitter parsers
 lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
 
--- Additional Plugins
+lvim.builtin.telescope.defaults.file_ignore_patterns = { "%.git/", "build/", "lib/", "%.cache/", "%.o$", "%.obj$",
+  "%.png$", "%.jpg$" }
+
+-- Add your own plugins here!!!
 table.insert(lvim.plugins, {
   "p00f/clangd_extensions.nvim",
+  "lunarvim/colorschemes",
+  "Mofiqul/vscode.nvim",
+  "lukas-reineke/indent-blankline.nvim",
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
 })
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
@@ -47,7 +59,6 @@ terminal_prefix.size = 10
 -- some settings can only passed as commandline flags, see `clangd --help`
 local clangd_flags = {
   "--background-index",
-  "--fallback-style=llvm",
   "--all-scopes-completion",
   "--clang-tidy",
   "--log=error",
@@ -58,12 +69,15 @@ local clangd_flags = {
   "--folding-ranges",
   "--enable-config",          -- clangd 11+ supports reading from .clangd configuration file
   "--offset-encoding=utf-16", --temporary fix for null-ls
-  -- "--limit-references=1000",
-  -- "--limit-resutls=1000",
-  -- "--malloc-trim",
-  -- "--clang-tidy-checks=-*,llvm-*,clang-analyzer-*,modernize-*,-modernize-use-trailing-return-type",
-  -- "--header-insertion=never",
-  -- "--query-driver=<list-of-white-listed-complers>"
+}
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "clang-format",
+    filetype = { "c", "cpp", "cs", "java" },
+    extra_args = { "--style", "file:~/.clang-format" }
+  }
 }
 
 local provider = "clangd"
@@ -106,6 +120,28 @@ local opts = {
   on_init = custom_on_init,
 }
 
+-- Define the lvim.lang table
+lvim.lang = {
+  -- Set up clang-format for formatting C/C++ files
+  cpp = {
+    formatters = {
+      {
+        exe = "clang-format",
+      },
+    },
+    -- Ensure clang-format is installed
+    linters = {
+      {
+        exe = "clang-format",
+      },
+    },
+  },
+}
+
+-- Ensure clang-format is used for formatting C files as well
+lvim.lang.c = lvim.lang.cpp
+
+
 require("lvim.lsp.manager").setup("clangd", opts)
 
 -- install codelldb with :MasonInstall codelldb
@@ -121,18 +157,6 @@ lvim.builtin.dap.on_config_done = function(dap)
 
       -- On windows you may have to uncomment this:
       -- detached = false,
-    },
-  }
-
-  lvim.plugins = {
-    -- Additional Utilities
-    { "lukas-reineke/indent-blankline.nvim" },
-    {
-      "folke/trouble.nvim",
-      cmd = "TroubleToggle",
-    },
-    {
-      'romgrk/barbar.nvim',
     },
   }
 
