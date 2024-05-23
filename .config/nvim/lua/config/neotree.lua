@@ -13,7 +13,7 @@ require("neo-tree").setup({
         "thumbs.db",
       },
     },
-    follow_current_file = true, -- This option will not work with the 0.7.x release
+    follow_current_file = { enabled = true },-- This option will not work with the 0.7.x release
     use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
   },
   window = {
@@ -25,6 +25,6 @@ require("neo-tree").setup({
     },
   },
   buffers = {
-    follow_current_file = true, -- This option will not work with the 0.7.x release
+    follow_current_file = { enabled = true }, -- This option will not work with the 0.7.x release
   },
 })
