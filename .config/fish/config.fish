@@ -69,7 +69,6 @@ alias fixpacman 'sudo rm /var/lib/pacman/db.lck'
 alias vim nvim
 alias tmux 'tmux -u'
 alias wget 'wget -c '
-alias config '/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias source-fish 'source ~/.config/fish/config.fish'
 alias vcpkg '~/.local/share/applications/vcpkg/vcpkg'
 
