@@ -2,6 +2,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH="$HOME/.local/bin":$PATH
 export PATH="/usr/local/bin":$PATH
 export ZSH="$HOME/.zsh"
+export TERM="screen-256color"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -64,6 +65,14 @@ sudo() {
     command sudo "$@"
   fi
 }
+
+# For Ctrl-arrow keys
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-cha
+bindkey '^?' backward-delete-char
 
 # Aliases
 alias ls="exa -al --color=always --group-directories-first --icons"
