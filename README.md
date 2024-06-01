@@ -1,10 +1,16 @@
-![i3-desktop](https://user-images.githubusercontent.com/68456596/166464911-9aa71569-0cb6-412d-9881-d5c8c309b562.png)
-
 ## System Coding's dotfiles
 Configs of neovim, fish, zsh, bash and alacritty
 
 Some of the scripts like in `(.local/bin)` are not mine and a README.md file is added in that directory, so please check that out!
 Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.com/playlist?list=PLnur5_dvCveFGV8tKbH9sdqOSBUlFNQrR
+
+## To Install: (GNU Stow)
+- Make sure you have gnu-stow installed.
+
+```bash
+git clone https://github.com/that404nerd/dotfiles
+stow . # for all configs
+```
 
 ## Lunarvim
 * Default C/C++ Configuration - https://github.com/LunarVim/starter.lvim/tree/c-ide
