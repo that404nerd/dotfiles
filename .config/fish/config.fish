@@ -6,6 +6,7 @@ set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -xU MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -xU MANROFFOPT -c
 set -x SHELL /usr/bin/fish
+set TERM screen-256color
 
 ## Export variable need for qt-theme	
 if type qtile >>/dev/null 2>&1
@@ -70,6 +71,7 @@ alias tmux 'tmux -u'
 alias wget 'wget -c '
 alias config '/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias source-fish 'source ~/.config/fish/config.fish'
+alias vcpkg '~/.local/share/applications/vcpkg/vcpkg'
 
 # Get fastest mirrors	
 alias mirrors 'sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'

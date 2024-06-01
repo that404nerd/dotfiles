@@ -1,2 +1,4 @@
 InlayHints:
   Enabled: No
+Diagnostics:
+  UnusedIncludes: None
