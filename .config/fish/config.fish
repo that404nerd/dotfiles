@@ -6,7 +6,6 @@ set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -xU MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -xU MANROFFOPT -c
 set -x SHELL /usr/bin/fish
-set TERM screen-256color
 
 ## Export variable need for qt-theme	
 if type qtile >>/dev/null 2>&1
@@ -64,7 +63,7 @@ if not test -x /usr/bin/yay; and test -x /usr/bin/paru
     alias yay paru
 end
 
-# Common use	
+# Common use
 alias fixpacman 'sudo rm /var/lib/pacman/db.lck'
 alias vim nvim
 alias tmux 'tmux -u'
