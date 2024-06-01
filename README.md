@@ -10,6 +10,11 @@ Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.
 * Default C/C++ Configuration - https://github.com/LunarVim/starter.lvim/tree/c-ide
 * Lunarvim launch issue (-u option error) - https://github.com/LunarVim/LunarVim/issues/3612#issuecomment-1379895972
 
+## Tmux
+* Original tmux config - https://github.com/hamvocke/dotfiles/blob/master/tmux/.tmux.conf (I just modified it to my liking and added couple of plugins)
+* tmux-continuum - https://github.com/tmux-plugins/tmux-continuum
+* tmux-resurrect - https://github.com/tmux-plugins/tmux-resurrect
+
 ## i3wm Setup
 * [i3-gaps](https://github.com/Airblader/i3) - i3-gaps is a fork of i3wm
 * [polybar](https://github.com/polybar/polybar) - A fast and easy-to-use tool for creating status bars
