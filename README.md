@@ -5,8 +5,18 @@ Some of the scripts like in `(.local/bin)` are not mine and a README.md file is 
 Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.com/playlist?list=PLnur5_dvCveFGV8tKbH9sdqOSBUlFNQrR
 
 ## To Install: (GNU Stow)
-- Make sure you have gnu-stow installed.
+Before you clone the repo make sure you have the following packages installed on your system:
+- neovim
+- fzf
+- tmux
+- zsh
+- fish
+- alacritty
+- stow
+- git
+- Any Nerd Font
 
+Now with that out of the way, execute the following commands to install the dotfiles:
 ```bash
 git clone https://github.com/that404nerd/dotfiles
 stow --adopt . # for all configs
