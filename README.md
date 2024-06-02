@@ -9,7 +9,7 @@ Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.
 
 ```bash
 git clone https://github.com/that404nerd/dotfiles
-stow . # for all configs
+stow --adopt . # for all configs
 ```
 
 ## Lunarvim
