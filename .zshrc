@@ -198,7 +198,6 @@ alias record-screen="ffmpeg -video_size 1366x768 -framerate 60 -f x11grab -i :0.
 if [ -e /home/revanth/.nix-profile/etc/profile.d/nix.sh ]; then . /home/revanth/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 eval "$(zoxide init zsh)"
-eval "$(fzf --zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

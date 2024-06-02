@@ -17,9 +17,6 @@ if [ -x /usr/bin/starship ]; then
 	unset -f __main
 fi
 
-# Advanced command-not-found hook
-source /usr/share/doc/find-the-command/ftc.bash
-
 ## Useful aliases
 
 # Replace ls with exa
