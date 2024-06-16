@@ -14,6 +14,7 @@ Before you clone the repo make sure you have the following packages installed on
 - alacritty
 - stow
 - git
+- yay or paru
 - Any Nerd Font
 
 Now with that out of the way, execute the following commands to install the dotfiles:
@@ -40,6 +41,41 @@ stow --adopt . # for all configs
 * [picom](https://github.com/yshui/picom) - Picom is a compositor for X, and a fork of Compton
 * [pamixer](https://github.com/cdemoulins/pamixer) - Pulseaudio command line mixer
 * [dunst](https://github.com/dunst-project/dunst) - Lightweight and customizable notification daemon
+
+## Hyprland Setup
+This hyprland config is a forked version of [ChrisTitusTech](https://github.com/ChrisTitusTech/hyprland-titus).
+Install the following dependencies:
+```bash
+yay -S hyprland polkit-gnome ffmpeg neovim viewnior rofi    \
+pavucontrol nemo starship wl-clipboard wf-recorder swaybg   \
+grimblast-git ffmpegthumbnailer tumbler playerct             \
+noise-suppression-for-voice gvfs                             \
+waybar-hyprland wlogout swaylock-effects sddm-git pamixer     \
+nwg-look-bin nordic-theme papirus-icon-theme dunst otf-sora   \
+ttf-nerd-fonts-symbols-common otf-firamono-nerd inter-font    \
+ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa  \
+ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd  \
+adobe-source-code-pro-fonts brightnessctl hyprpicker-git libinput \
+swaylock waybar waypaper go-md2man brillo
+```
+For brillo: (If it doesn't work due to permission issues)
+
+```bash
+sudo vim /etc/udev/rules.d/90-backlight.rules
+```
+
+Add the following line to the file:
+`ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="/bin/chmod 0666 /sys/class/backlight/%k/brightness"`
+
+If intel_backlight is not the correct backlight device, you might need to check the exact device name in /sys/class/backlight/ and replace intel_backlight with the appropriate name. Then,
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+sudo usermod -aG video $USER
+```
+
+Then copy `.config/hypr` and `.config/waybar` into `$HOME/.config`
 
 ---
 ### (Optional)

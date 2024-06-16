@@ -7,8 +7,8 @@
 local map = vim.keymap.set
 local mapDel = vim.keymap.del
 
-map("n", "<leader>p", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<leader>n", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<C-p>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "<C-n>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Delete Current Buffer" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
 map("n", "<leader>fa", "<cmd>Telescope<cr>", { desc = "Find All" })
