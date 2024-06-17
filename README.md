@@ -80,6 +80,3 @@ Then copy `.config/hypr` and `.config/waybar` into `$HOME/.config`
 ---
 ### (Optional)
 [polybar-themes](https://github.com/adi1090x/polybar-themes) - A huge collection of polybar themes with different styles, colors and variants.
-
-## License
-The files and scripts in this repository are licensed under the MIT License, which is a very permissive license allowing you to use, modify, copy, distribute, sell, give away, etc. the software. In other words, do what you want with it. The only requirement with the MIT License is that the license and copyright notice must be provided with the software.
