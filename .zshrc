@@ -62,6 +62,22 @@ fi
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
+mv-progress() {
+  if [ "$#" -ne 2 ]; then
+      echo "Usage: mv-progress source destination"
+      return 1
+  fi
+  rsync -ah --progress "$1" "$2" && rm -rf "$1"
+}
+
+cp-progress() {
+   if [ "$#" -ne 2 ]; then
+      echo "Usage: mv-progress source destination"
+      return 1
+  fi
+  rsync -ah --progress "$1" "$2"
+}
+
 function __zoxide_pwd() {
     \builtin pwd -L
 }
@@ -172,6 +188,7 @@ alias ls="exa -al --color=always --group-directories-first --icons"
 alias vim="nvim" # Use Neovim
 alias cd="z"
 alias cdi="zi"
+alias start-virsh='sudo virsh net-start default'
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'

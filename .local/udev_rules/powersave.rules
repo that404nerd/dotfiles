@@ -1,0 +1,4 @@
+# Rule for when switching to battery
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/revanth/.Xauthority" RUN+="/usr/bin/su revanth -c '/home/revanth/.local/bin/charging-notify.sh 1'"
+# Rule for when switching to AC
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/revanth/.Xauthority" RUN+="/usr/bin/su revanth -c '/home/revanth/.local/bin/charging-notify.sh 0'"
