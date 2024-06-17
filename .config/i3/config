@@ -7,6 +7,7 @@ gaps outer 2
 # Startup Apps
 exec --no-startup-id "nitrogen --restore &"
 exec --no-startup-id "picom --experimental-backends"
+exec --no-startup-id "dunst"
 exec --no-startup-id "flameshot &"
 exec --no-startup-id "nm-applet &"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
