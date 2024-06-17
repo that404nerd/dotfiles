@@ -42,10 +42,20 @@ stow --adopt . # for all configs
 * [pamixer](https://github.com/cdemoulins/pamixer) - Pulseaudio command line mixer
 * [dunst](https://github.com/dunst-project/dunst) - Lightweight and customizable notification daemon
 
+Additional packages:
+```
+cronie
+acpi
+```
+
 For battery notifications (dunst) install `cronie` using your package manager and execute the following command:
 `crontab -e`
 Add the following line:
 `*/10 * * * * /home/username/.local/bin/battery-notify.sh`
+
+Move the `.local/udev_rules/powersave.rules` to `/etc/udev/rules.d/`
+And then execute:
+`sudo udevadm control --reload`
 
 Replace 10 (time in minutes) with whatever number you want. It checks for the battery status every 10 minutes in this case.
 Watch this video for more info - https://www.youtube.com/watch?v=3wTt6fStYCI
