@@ -1,4 +1,4 @@
-## System Coding's dotfiles
+## That404Nerd's dotfiles
 Configs of neovim, fish, zsh, bash and alacritty
 
 Some of the scripts like in `(.local/bin)` are not mine and a README.md file is added in that directory, so please check that out!
