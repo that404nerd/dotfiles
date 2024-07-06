@@ -1,3 +1,4 @@
+export PATH="$PATH:/home/revanth/.local/bin"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -55,6 +56,8 @@ alias big="expac -H M '%m\t%n' | sort -h | nl"     # Sort installed packages acc
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 alias ip='ip -color'
 alias start-virsh='sudo virsh net-start default'
+alias tmux='tmux -u'
+alias vim='nvim'
 
 # Get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"

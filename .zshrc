@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export TERM="screen-256color"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 autoload -U compinit && compinit
 
@@ -23,6 +22,7 @@ zinit ice depth=1;
 zinit light romkatv/powerlevel10k # Prompt theme
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light Aloxaf/fzf-tab
 
@@ -175,14 +175,6 @@ if [[ -o zle ]]; then
 fi
 
 
-# For Ctrl-arrow keys
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-bindkey '^[[3~' delete-cha
-bindkey '^?' backward-delete-char
-
 # Aliases
 alias ls="exa -al --color=always --group-directories-first --icons"
 alias vim="nvim" # Use Neovim
@@ -199,19 +191,14 @@ alias fgrep='fgrep --color=auto'
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
-# nix package manager 
-alias nix-install="nix-env -iA"
-alias nix-remove="nix-env -e"
-alias nix-update="nix-env -u"
-alias nix-list="nix-env -q"
+# Nix Aliases:
+alias nixos-config="sudo vim /etc/nixos/configuration.nix"
+alias nixos-build="sudo nixos-rebuild switch"
 
 alias tmux="tmux -u"
 alias wget="wget -c"
 alias source-zsh="source ~/.zshrc"
 alias vcpkg="~/.local/share/applications/vcpkg/vcpkg"
-
-# recording using ffmpeg (X11)
-alias record-screen="ffmpeg -video_size 1366x768 -framerate 60 -f x11grab -i :0.0+0,0 -f pulse -ac 2 -i 0 -c:v libx264rgb -preset ultrafast $HOME/Videos/ScreenRecordings/output.mkv"
 
 if [ -e /home/revanth/.nix-profile/etc/profile.d/nix.sh ]; then . /home/revanth/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
