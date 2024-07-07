@@ -8,6 +8,9 @@ fi
 export QT_QPA_PLATFORMTHEME="qt5ct"
 autoload -U compinit && compinit
 
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -192,7 +195,7 @@ alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/p
 alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
 # Nix Aliases:
-alias nixos-config="sudo vim /etc/nixos/configuration.nix"
+alias nixos-config="vim $HOME/.config/nix/configuration.nix"
 alias nixos-build="sudo nixos-rebuild switch"
 
 alias tmux="tmux -u"

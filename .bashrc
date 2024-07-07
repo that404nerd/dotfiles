@@ -2,6 +2,9 @@ export PATH="$PATH:/home/revanth/.local/bin"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # Load starship prompt if starship is installed
 if [ -x /usr/bin/starship ]; then
 	__main() {
@@ -58,12 +61,17 @@ alias ip='ip -color'
 alias start-virsh='sudo virsh net-start default'
 alias tmux='tmux -u'
 alias vim='nvim'
+alias source-bash='source ~/.bashrc'
 
 # Get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+
+# Nix Aliases:
+alias nixos-config="vim $HOME/.config/nix/configuration.nix"
+alias nixos-build="sudo nixos-rebuild switch"
 
 # Help people new to Arch
 alias apt='man pacman'
