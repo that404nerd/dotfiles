@@ -196,7 +196,7 @@ alias cleanup="sudo pacman -Rns (pacman -Qtdq)"
 
 # Nix Aliases:
 alias nixos-config="vim $HOME/.config/nix/configuration.nix"
-alias nixos-build="sudo nixos-rebuild switch"
+alias nixos-build="sudo nixos-rebuild switch --flake ~/.config/nix"
 
 alias tmux="tmux -u"
 alias wget="wget -c"

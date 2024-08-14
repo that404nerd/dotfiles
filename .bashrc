@@ -71,7 +71,7 @@ alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 
 # Nix Aliases:
 alias nixos-config="vim $HOME/.config/nix/configuration.nix"
-alias nixos-build="sudo nixos-rebuild switch"
+alias nixos-build="sudo nixos-rebuild switch --flake ~/.config/nix#default"
 
 # Help people new to Arch
 alias apt='man pacman'

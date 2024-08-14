@@ -9,6 +9,9 @@
     "plugins": {
       "lua_ls": {
         "enabled": true
+      },
+      "clangd": {
+        "enabled": true
       }
     }
   }

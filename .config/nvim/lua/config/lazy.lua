@@ -8,6 +8,16 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+
+  opts = {
+    servers = {
+      lua_ls = {
+        mason = false,
+        enabled = false,
+      }
+    }
+  },
+
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
@@ -45,3 +55,5 @@ require("lazy").setup({
     },
   },
 })
+
+
