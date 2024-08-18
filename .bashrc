@@ -1,9 +1,5 @@
-export PATH="$PATH:/home/revanth/.local/bin"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 # Load starship prompt if starship is installed
 if [ -x /usr/bin/starship ]; then
@@ -20,6 +16,9 @@ if [ -x /usr/bin/starship ]; then
 	__main
 	unset -f __main
 fi
+
+# Advanced command-not-found hook
+source /usr/share/doc/find-the-command/ftc.bash
 
 ## Useful aliases
 
@@ -58,20 +57,12 @@ alias hw='hwinfo --short'                          # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"     # Sort installed packages according to size in MB (expac must be installed)
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 alias ip='ip -color'
-alias start-virsh='sudo virsh net-start default'
-alias tmux='tmux -u'
-alias vim='nvim'
-alias source-bash='source ~/.bashrc'
 
 # Get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
-
-# Nix Aliases:
-alias nixos-config="vim $HOME/.config/nix/configuration.nix"
-alias nixos-build="sudo nixos-rebuild switch --flake ~/.config/nix#default"
 
 # Help people new to Arch
 alias apt='man pacman'
