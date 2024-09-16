@@ -203,7 +203,7 @@ alias wget="wget -c"
 alias source-zsh="source ~/.zshrc"
 alias vcpkg="~/.local/share/applications/vcpkg/vcpkg"
 
-if [ -e /home/revanth/.nix-profile/etc/profile.d/nix.sh ]; then . /home/revanth/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 eval "$(zoxide init zsh)"
 
