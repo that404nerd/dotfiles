@@ -6,10 +6,10 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/mode"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
     "hyprland/workspaces": {
         "disable-scroll": true,
-	"on-click": "activate",
+	      "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
             "1": "",
@@ -39,7 +39,7 @@
     },
     "memory": {
         "format": "{}%  ",
-	"on-click": "gnome-system-monitor"
+	      "on-click": "gnome-system-monitor"
     },
     "battery": {
         "bat": "BAT0",
@@ -52,12 +52,6 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{signalStrength}%  ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
         //"scroll-step": 1,

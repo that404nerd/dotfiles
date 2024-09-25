@@ -44,6 +44,7 @@ mods = "Control|Shift"
 [window]
 dynamic_padding = false
 title = "Alacritty"
+opacity = 0.9
 
 [window.class]
 general = "Alacritty"
