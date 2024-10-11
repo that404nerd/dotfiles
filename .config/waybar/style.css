@@ -24,9 +24,10 @@ window#waybar {
 
 #workspaces button {
     padding: 0 5px;
-    background: transparent;
     color: white;
-    border-top: 2px solid transparent;
+    border-top: 2px solid transparent; 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-right: 8px;
 }
 
 #workspaces button.focused {
@@ -35,6 +36,9 @@ window#waybar {
     background-color: #FF0000; /* Change the color as needed */
 }
 
+#workspaces button.active {
+    background: rgba(255, 255, 255, 0.3);
+}
 
 #mode {
     background: #64727D;

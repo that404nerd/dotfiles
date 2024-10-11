@@ -6,23 +6,16 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/mode"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-right": ["backlight", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
     "hyprland/workspaces": {
         "disable-scroll": true,
 	      "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            "urgent": " ",
+            "focused": " ",
         },
-	"sort-by-number": true
+    "sort-by-number": true
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{icon}</span>"
@@ -52,6 +45,11 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
+    },
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "{percent}% {icon}",
+      "format-icons": [" ", " "]
     },
     "pulseaudio": {
         //"scroll-step": 1,
