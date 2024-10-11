@@ -5,7 +5,6 @@
     // "width": 1366, // Waybar width
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/mode"],
-    "modules-center": ["hyprland/window"],
     "modules-right": ["backlight", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -37,14 +36,14 @@
     "battery": {
         "bat": "BAT0",
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon} ",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-full": "{capacity}% 󰁹",
+        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣"]
     },
     "backlight": {
       "device": "intel_backlight",
@@ -55,16 +54,12 @@
         //"scroll-step": 1,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": " ",
+        "format-muted": "Muted  ",
         "format-icons": {
             "headphones": " ",
-            "handsfree": " ",
-            "headset": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
             "default": [" ", " "]
         },
         "on-click": "pavucontrol"
     },
+  
 }
