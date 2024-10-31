@@ -8,6 +8,8 @@ fi
 autoload -U compinit && compinit
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export PATH="$HOME/.cargo/bin:$PATH"
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then

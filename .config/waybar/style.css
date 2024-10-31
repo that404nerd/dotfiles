@@ -3,13 +3,13 @@
     font-family: Cartograph CF Nerd Font, monospace;
     font-weight: bold;
     font-size: 14px;
+    padding: 0.1rem;
 }
 
 window#waybar {
     background: #1C1B22;
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    min-height: 30px;
 }
 
 #window {
