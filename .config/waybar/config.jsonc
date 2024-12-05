@@ -43,7 +43,7 @@
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-full": "{capacity}% 󰁹",
-        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣"]
+        "format-icons": ["󰂎", "󰁻", "󱊡", "󱊢", "󱊣"]
     },
     "backlight": {
       "device": "intel_backlight",
