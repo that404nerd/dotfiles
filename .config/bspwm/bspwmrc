@@ -104,6 +104,12 @@ exec mpd &
 # Start clipman
 exec clipman &
 
+# Start clipman
+exec nm-applet &
+
+# Start clipman
+exec blueman-applet &
+
 # Start some apps
 exec picom --config ~/.config/picom/picom.conf &
 exec dunst -config ~/.config/dunst/dunstrc &
