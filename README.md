@@ -101,3 +101,6 @@ Watch this video for more info - https://www.youtube.com/watch?v=3wTt6fStYCI
 
 ### (Optional)
 [polybar-themes](https://github.com/adi1090x/polybar-themes) - A huge collection of polybar themes with different styles, colors and variants.
+
+Credits:
+BSPWM Configs - https://github.com/archcraft-os/archcraft-bspwm (My Edits of the Archcraft's BSPWM under GPL-3.0)
