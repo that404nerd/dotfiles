@@ -6,19 +6,7 @@
 
 # Terminal (alacritty)
 super + Return
-	kitty
-
-# Terminal (floating)
-super + shift + Return
-	bspterm --float
-
-# Terminal (fullscreen)
-super + alt + Return
-	bspterm --full
-
-# Terminal (kitty)
-ctrl + alt + t
-    bspkitty
+	alacritty
 
 ##---------- Rofi Launcher & Menus ----------##
 
@@ -89,10 +77,6 @@ ctrl + shift + {q,r}
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# Switch workspace
-ctrl + alt + {Left,Right}
-	bspc desktop -f {prev.local,next.local}
-
 # Switch workspace or Send focused Node to another workspace
 super + {_,shift + }{1-8}
 	bspc {desktop -f,node -d} '^{1-8}' '--follow'
@@ -121,10 +105,6 @@ super + alt + {Left,Right,Up,Down}
 super + {h,v,q}
 	bspc node -p {east,south,cancel}
 
-# Preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
 # Toggle Fullscreen
 super + f
     bspc node -t "~"fullscreen
@@ -132,14 +112,6 @@ super + f
 # Toggle beetwen floating & tiled
 super + space
     bspc node -t "~"{floating,tiled}
-
-# Pseudo Tiled & tiled mode
-super + shift + space
-    bspc node -t "~"{pseudo_tiled,tiled}
-
-# Set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
 
 # Change focus to next window, including floating window
 alt + {_,shift + }Tab
