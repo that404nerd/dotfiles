@@ -32,13 +32,9 @@ BSPWM_SRATIO='0.50'
 ## Configurations --------------------------------------------#
 
 ## Manage Monitors and Workspaces
-default_workspaces() {
-	for monitor in `xrandr -q | grep -w 'connected' | cut -d' ' -f1`; do
-		bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6' '7' '8'
-	done
-}
-
-default_workspaces
+for monitor in `xrandr -q | grep -w 'connected' | cut -d' ' -f1`; do
+	bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6' '7' '8'
+done
 
 ## Apply bspwm configurations
 bspc config border_width "$BSPWM_BORDER"
@@ -56,13 +52,13 @@ bspc config paddingless_monocle true
 bspc config single_monocle false
 bspc config focus_follows_pointer true
 bspc config presel_feedback true
-bspc config ignore_ewmh_fullscreen false
 
 ## Manage all the unmanaged windows remaining from a previous session.
 bspc wm --adopt-orphans
 
 ## remove all rules first
 bspc rule -r *:*
+
 
 ## Always Floating Apps
 declare -a floating=(alacritty-float kitty-float Pcmanfm Thunar Onboard Yad 'Firefox:Places' \

@@ -1,7 +1,3 @@
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## Keybindings config for Archcraft's BSPWM
-
 ##---------- Keybindings for bspwm ----------##
 
 # Terminal (alacritty)
@@ -81,17 +77,9 @@ super + Escape
 super + {_,shift + }{1-8}
 	bspc {desktop -f,node -d} '^{1-8}' '--follow'
 
-# Send focused Node to workspace directionally
-super + ctrl + shift + {Left,Right}
-	bspc node -d {prev,next} '--follow'
-
 # Change focus of the Node or Swap Nodes
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-
-# Move floating windows
-super + alt + shift + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Expanding windows
 super + control + {Left,Right,Up,Down}
@@ -110,15 +98,5 @@ super + f
     bspc node -t "~"fullscreen
 
 # Toggle beetwen floating & tiled
-super + space
+super + shift + f
     bspc node -t "~"{floating,tiled}
-
-# Change focus to next window, including floating window
-alt + {_,shift + }Tab
-	bspc node -f {next.local,prev.local}
-
-# Switch to last opened workspace
-super + {Tab,grave}
-	bspc {node,desktop} -f last
-	
-##---------- EOF ----------##

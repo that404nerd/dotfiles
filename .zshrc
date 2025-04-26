@@ -9,6 +9,9 @@ if [ ! -d "$ZINIT_HOME" ]; then
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+
 source "${ZINIT_HOME}/zinit.zsh"
 ## Install Plugins
 zinit ice depth=1;
@@ -97,3 +100,4 @@ alias os-install-date="stat / | grep Birth"  # A shitty way to get the date of i
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 eval "$(starship init zsh)"
+export MAKEFLAGS="-j$(nproc)"
