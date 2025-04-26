@@ -56,6 +56,7 @@ bspc config paddingless_monocle true
 bspc config single_monocle false
 bspc config focus_follows_pointer true
 bspc config presel_feedback true
+bspc config ignore_ewmh_fullscreen false
 
 ## Manage all the unmanaged windows remaining from a previous session.
 bspc wm --adopt-orphans
@@ -97,7 +98,7 @@ xfce4-power-manager &
 xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
-bash ~/.fehbg
+nitrogen --restore &
 
 # Start mpd
 exec mpd &

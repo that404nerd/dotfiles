@@ -12,7 +12,7 @@ super + Return
 
 # Rofi App Launcher
 super + r
-	rofi_launcher
+	rofi -show drun
 
 ##---------- Applications ----------##
 super + b

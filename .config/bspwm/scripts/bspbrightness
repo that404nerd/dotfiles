@@ -46,7 +46,7 @@ notify_bl() {
 # Increase brightness
 inc_backlight() {
 	if [[ "$CARD" == *"intel_"* ]]; then
-		xbacklight -inc 10 && notify_bl
+		xbacklight -inc 5 && notify_bl
 	else
 		light -A 5 && notify_bl
 	fi
@@ -55,7 +55,7 @@ inc_backlight() {
 # Decrease brightness
 dec_backlight() {
 	if [[ "$CARD" == *"intel_"* ]]; then
-		xbacklight -dec 10 && notify_bl
+		xbacklight -dec 5 && notify_bl
 	else
 		light -U 5 && notify_bl
 	fi
