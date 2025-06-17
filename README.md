@@ -47,7 +47,7 @@ stow --adopt . # for all configs
 This hyprland config is a forked version of [ChrisTitusTech](https://github.com/ChrisTitusTech/hyprland-titus).
 Install the following dependencies:
 ```bash
-yay -S hyprland polkit-gnome ffmpeg neovim viewnior rofi    \
+yay -S hyprland polkit-gnome nwg-look ffmpeg neovim viewnior rofi    \
 pavucontrol nemo starship wl-clipboard wf-recorder swaybg   \
 grimblast-git ffmpegthumbnailer tumbler playerct             \
 noise-suppression-for-voice gvfs                             \
