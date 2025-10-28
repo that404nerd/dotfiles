@@ -54,7 +54,8 @@ ttf-comfortaa ttf-fantasque-nerd ttf-icomoon-feather ttf-iosevka-nerd \
 ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-common starship
 ```
 
----
-
-### (Optional)
+--- 
+## Credits:
+[HyprLust](https://github.com/NischalDawadi/Hyprlust) - This is the original repo used to build my modified version of Hyprland. Thanks!
 [polybar-themes](https://github.com/adi1090x/polybar-themes) - A huge collection of polybar themes with different styles, colors and variants.
+
