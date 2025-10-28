@@ -1,9 +1,6 @@
 ## That404Nerd's dotfiles
 Configs of neovim, fish, zsh, bash and alacritty
 
-Some of the scripts like in `(.local/bin)` are not mine and a README.md file is added in that directory, so please check that out!
-Make sure to follow this playlist for more info (Eric Murphy) - https://youtube.com/playlist?list=PLnur5_dvCveFGV8tKbH9sdqOSBUlFNQrR
-
 ## To Install: (GNU Stow)
 Before you clone the repo make sure you have the following packages installed on your system:
 - neovim
@@ -15,17 +12,13 @@ Before you clone the repo make sure you have the following packages installed on
 - stow
 - git
 - yay or paru
-- Any Nerd Font
+- Iosevka Nerd Font, Jetbrains Mono Nerd Font are required
 
 Now with that out of the way, execute the following commands to install the dotfiles:
 ```bash
 git clone https://github.com/that404nerd/dotfiles
-stow --adopt . # for all configs
+stow alacritty bash clangd dunst hypr i3 nvim picom polybar rofi swaync tmux wallust waybar wlogout zsh
 ```
-
-## Lunarvim
-* Default C/C++ Configuration - https://github.com/LunarVim/starter.lvim/tree/c-ide
-* Lunarvim launch issue (-u option error) - https://github.com/LunarVim/LunarVim/issues/3612#issuecomment-1379895972
 
 ## Tmux
 * Original tmux config - https://github.com/hamvocke/dotfiles/blob/master/tmux/.tmux.conf (I just modified it to my liking and added couple of plugins)
@@ -44,63 +37,24 @@ stow --adopt . # for all configs
 
 
 ## Hyprland Setup
-This hyprland config is a forked version of [ChrisTitusTech](https://github.com/ChrisTitusTech/hyprland-titus).
+This hyprland config is a modified version of [HyprLust](https://github.com/NischalDawadi/Hyprlust)
+- Make sure to install these [Wallpapers](https://github.com/NischalDawadi/Wallpapers)
+
 Install the following dependencies:
-```bash
-yay -S hyprland polkit-gnome nwg-look ffmpeg neovim viewnior rofi    \
-pavucontrol nemo starship wl-clipboard wf-recorder swaybg   \
-grimblast-git ffmpegthumbnailer tumbler playerct             \
-noise-suppression-for-voice gvfs                             \
-waybar-hyprland wlogout swaylock-effects sddm-git pamixer     \
-nwg-look-bin nordic-theme papirus-icon-theme dunst otf-sora   \
-ttf-nerd-fonts-symbols-common otf-firamono-nerd inter-font    \
-ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa  \
-ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd  \
-adobe-source-code-pro-fonts brightnessctl hyprpicker-git libinput \
-swaylock waybar waypaper go-md2man brillo xdg-desktop-portal-hyprland waypaper \
-thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman
-```
-Brillo Setup: (Brightness Control)
 
 ```bash
-sudo vim /etc/udev/rules.d/90-backlight.rules
+yay -S adobe-source-code-pro-fonts brightnessctl brillo chafa dunst ffmpeg ffmpegthumbnailer \
+go-md2man gvfs hyprland hyprpicker-git inter-font nemo nwg-look \
+noise-suppression-for-voice nordic-theme neovim otf-firamono-nerd otf-sora \
+papirus-icon-theme pamixer playerct pavucontrol polkit-gnome rofi \
+sddm-git swaybg swaylock swaylock-effects swaync waybar waybar-git \
+waypaper wl-clipboard wf-recorder viewnior xdg-desktop-portal-hyprland \
+thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman \
+ttf-comfortaa ttf-fantasque-nerd ttf-icomoon-feather ttf-iosevka-nerd \
+ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-common starship
 ```
-
-Add the following line to the file:
-`ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="/bin/chmod 0666 /sys/class/backlight/%k/brightness"`
-
-If intel_backlight is not the correct backlight device, you might need to check the exact device name in /sys/class/backlight/ and replace intel_backlight with the appropriate name. Then,
-
-```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-sudo usermod -aG video $USER
-```
-
-### Battery Notifications setup
-Additional packages:
-```
-cronie
-acpi
-```
-
-For battery notifications (dunst) install `cronie` using your package manager and execute the following command:
-`crontab -e`
-Add the following line:
-`*/10 * * * * /home/username/.local/bin/battery-notify.sh`
-
-Move the `.local/udev_rules/powersave.rules` to `/etc/udev/rules.d/`
-And then execute:
-`sudo udevadm control --reload`
-
-Replace 10 (time in minutes) with whatever number you want. It checks the battery status every 10 minutes in this case.
-Watch this video for more info - https://www.youtube.com/watch?v=3wTt6fStYCI
 
 ---
 
-
 ### (Optional)
 [polybar-themes](https://github.com/adi1090x/polybar-themes) - A huge collection of polybar themes with different styles, colors and variants.
-
-Credits:
-BSPWM Configs - https://github.com/archcraft-os/archcraft-bspwm (My Edits of the Archcraft's BSPWM under GPL-3.0)
