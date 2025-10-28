@@ -38,7 +38,9 @@ stow alacritty bash clangd dunst hypr i3 nvim picom polybar rofi swaync tmux wal
 
 ## Hyprland Setup
 This hyprland config is a modified version of [HyprLust](https://github.com/NischalDawadi/Hyprlust)
+
 - Make sure to install these [Wallpapers](https://github.com/NischalDawadi/Wallpapers)
+- Make sure the wallpapers folder is in ~/Pictures and is named Wallpapers (case-sensitive)
 
 Install the following dependencies:
 
@@ -46,16 +48,17 @@ Install the following dependencies:
 yay -S adobe-source-code-pro-fonts brightnessctl brillo chafa dunst ffmpeg ffmpegthumbnailer \
 go-md2man gvfs hyprland hyprpicker-git inter-font nemo nwg-look \
 noise-suppression-for-voice nordic-theme neovim otf-firamono-nerd otf-sora \
-papirus-icon-theme pamixer playerct pavucontrol polkit-gnome rofi \
+papirus-icon-theme pamixer playerctl pavucontrol polkit-gnome rofi \
 sddm-git swaybg swaylock swaylock-effects swaync waybar waybar-git \
 waypaper wl-clipboard wf-recorder viewnior xdg-desktop-portal-hyprland \
 thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman \
 ttf-comfortaa ttf-fantasque-nerd ttf-icomoon-feather ttf-iosevka-nerd \
-ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-common starship
+ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-common starship wallust cpio swww wlogout feh network-manager-applet blueman
 ```
 
 --- 
 ## Credits:
 [HyprLust](https://github.com/NischalDawadi/Hyprlust) - This is the original repo used to build my modified version of Hyprland. Thanks!
+
 [polybar-themes](https://github.com/adi1090x/polybar-themes) - A huge collection of polybar themes with different styles, colors and variants.
 
