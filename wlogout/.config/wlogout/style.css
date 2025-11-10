@@ -2,7 +2,26 @@
 /* wallust-wlogout */
 
 /* Importing wallust colors */
-@import '../../.config/waybar/wallust/colors-waybar.css';
+@define-color foreground #BFE3EA;
+@define-color background alpha(#000007,0.05);
+@define-color cursor #B98FAE;
+
+@define-color color0 #000009;
+@define-color color1 #60697E;
+@define-color color2 #BA4F80;
+@define-color color3 #4F7F96;
+@define-color color4 #BE869D;
+@define-color color5 #47A6BD;
+@define-color color6 #49AEC4;
+@define-color color7 #9BCED9;
+@define-color color8 #6D9098;
+@define-color color9 #60697E;
+@define-color color10 #BA4F80;
+@define-color color11 #4F7F96;
+@define-color color12 #BE869D;
+@define-color color13 #47A6BD;
+@define-color color14 #49AEC4;
+@define-color color15 #9BCED9;
 
 window {
     font-size: 24pt;
@@ -18,15 +37,14 @@ button {
     animation: gradient_f 10s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
     border-radius: 80px;
-	border:0px;
-	outline-style: none;
+    border:0px;
+    outline-style: none;
 }
 
 button:focus {
     background-size: 50%;
-	border: 0px;
-	outline-style: none;
-
+    border: 0px;
+    outline-style: none;
 }
 
 button:hover {
