@@ -48,11 +48,9 @@
 	"modules": [
 		"tray",
 		"pulseaudio",
-                "mpris",
+    "mpris",
 	]
 },
-
-
 
 "battery": {
 	//"interval": 5,

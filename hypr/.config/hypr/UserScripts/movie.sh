@@ -1,1 +1,0 @@
-lobster-rs --rofi

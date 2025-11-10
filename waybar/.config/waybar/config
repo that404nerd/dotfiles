@@ -4,8 +4,8 @@
   "height" : 34,
   "width" : 1200,
   "margin-left": 50,
-"margin-right": 50,
-"margin-top": 5,
+  "margin-right": 50,
+  "margin-top": 5,
 
   "fixed-center": true,
   "reload_style_on_change": true,
@@ -23,9 +23,9 @@
 
   "modules-right": [
   "idle_inhibitor",
-  "group/demo",
-   "group/hub",
-   "custom/power",
+    "group/demo",
+    "group/hub",
+    "custom/power",
     
   ],
 }
