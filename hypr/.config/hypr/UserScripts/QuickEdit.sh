@@ -3,7 +3,7 @@
 
 # Define preferred text editor and terminal
 edit=${EDITOR:-nvim}
-tty=kitty
+tty=alacritty
 
 # Paths to configuration directories
 configs="$HOME/.config/hypr/configs"
