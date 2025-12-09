@@ -45,15 +45,26 @@ This hyprland config is a modified version of [HyprLust](https://github.com/Nisc
 Install the following dependencies:
 
 ```bash
-yay -S adobe-source-code-pro-fonts brightnessctl brillo chafa dunst ffmpeg ffmpegthumbnailer \
-go-md2man gvfs hyprland hyprpicker-git inter-font nemo nwg-look \
-noise-suppression-for-voice nordic-theme neovim otf-firamono-nerd otf-sora \
-papirus-icon-theme pamixer playerctl pavucontrol polkit-gnome rofi \
-sddm-git swaybg swaylock swaylock-effects swaync waybar waybar-git \
-waypaper wl-clipboard wf-recorder viewnior xdg-desktop-portal-hyprland \
-thunar-archive-plugin thunar-media-tags-plugin thunar-shares-plugin thunar-volman \
-ttf-comfortaa ttf-fantasque-nerd ttf-icomoon-feather ttf-iosevka-nerd \
-ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-common starship wallust cpio swww wlogout feh network-manager-applet blueman
+yay -S adobe-source-code-pro-fonts aquamarine-git brillo brightnessctl chafa cpio dunst \
+feh ffmpeg ffmpegthumbnailer go-md2man grimblast-git gvfs hyprgraphics-git hyprland-git \
+hyprlang-git hyprlock-git hyprpicker-git hyprtoolkit-git hyprutils-git inter-font nemo \
+network-manager-applet neovim nordic-theme noise-suppression-for-voice nwg-look \
+otf-firamono-nerd otf-sora pamixer papirus-icon-theme pavucontrol playerctl polkit-gnome \
+rofi sddm-git starship swaybg swaylock swaylock-effects swaync ttf-comfortaa \
+ttf-fantasque-nerd ttf-icomoon-feather ttf-iosevka-nerd ttf-jetbrains-mono-nerd \
+ttf-nerd-fonts-symbols-common viewnior wallust waybar-git waypaper wf-recorder \
+wl-clipboard wlogout xdg-desktop-portal-hyprland-git thunar-archive-plugin \
+thunar-media-tags-plugin thunar-shares-plugin thunar-volman swww
+```
+
+If it's complaining about packages this worked for me:
+```bash
+sudo pacman -Rns hyprland hyprlang hyprutils hyprgraphics hyprtoolkit \
+  hyprland-guiutils aquamarine hyprlock xdg-desktop-portal-hyprland \
+  grimblast-git hyprland-qt-support
+```
+- Run this command with care
+```
 ```
 
 --- 
