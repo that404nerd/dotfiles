@@ -83,3 +83,9 @@ alias os-install-date="stat / | grep Birth"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 eval "$(starship init bash)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/revanth/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH="$HOME/.npm-global/bin:$PATH"
