@@ -1,5 +1,4 @@
 autoload -U compinit && compinit
-export QT_QPA_PLATFORMTHEME="qt5ct"
 
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -12,6 +11,18 @@ fi
 
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
+
+# Ctrl + Arrow word navigation
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# Alternative terminal sequences
+bindkey '^[[5D' backward-word
+bindkey '^[[5C' forward-word
+
+# Alt + Arrow word navigation
+bindkey '\e\e[D' backward-word
+bindkey '\e\e[C' forward-word
 
 source "${ZINIT_HOME}/zinit.zsh"
 ## Install Plugins
@@ -102,14 +113,3 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 
 eval "$(starship init zsh)"
 export MAKEFLAGS="-j$(nproc)"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/revanth/.lmstudio/bin"
-# End of LM Studio CLI section
-
-export PATH="$HOME/.npm-global/bin:$PATH"
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-
-# bun completions
-[ -s "/home/revanth/.bun/_bun" ] && source "/home/revanth/.bun/_bun"
